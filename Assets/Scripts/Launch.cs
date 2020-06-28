@@ -37,39 +37,7 @@ public class Launch : MonoBehaviour
     {
         return Mathf.Abs(a - b) <= 0.985f;
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name.Equals("Character"))
-        {
-            Do();
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name.Equals("Character"))
-        {
-            Do();
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name.Equals("Character"))
-        {
-            Do();
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name.Equals("Character"))
-        {
-            Do();
-        }
-    }
-    */
     private void Do()
     {
         Debug.Log("LAUNCH");
@@ -80,6 +48,10 @@ public class Launch : MonoBehaviour
         else if (name.Contains("Down"))
         {
             direction = Vector3.back;
+        }
+        else if (name.Contains("Jump"))
+        {
+            direction = Vector3.up;
         }
         else
         {
@@ -97,9 +69,11 @@ public class Launch : MonoBehaviour
         {
             doing = true;
             GameObject character = GameObject.Find("Character");
-            for (int i = 0; i < 10; i++)
+            int amount = 10;
+            if (direction.Equals(Vector3.up)) { amount = 20;  }
+            for (int i = 0; i < amount; i++)
             {
-                character.transform.Translate(direction * 0.5f);
+                character.transform.Translate(direction * 0.4f);
                 yield return new WaitForFixedUpdate();
             }
             doing = false;

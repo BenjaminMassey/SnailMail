@@ -211,16 +211,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7760161892474394817, guid: 2881373a40d88a5499092a047886e1b9,
-        type: 3}
-      propertyPath: Object_to_Face
-      value: 
-      objectReference: {fileID: 5133360583629452427}
     - target: {fileID: 3403054262318187100, guid: 2881373a40d88a5499092a047886e1b9,
         type: 3}
       propertyPath: m_Name
       value: Collectable
       objectReference: {fileID: 0}
+    - target: {fileID: 7760161892474394817, guid: 2881373a40d88a5499092a047886e1b9,
+        type: 3}
+      propertyPath: Object_to_Face
+      value: 
+      objectReference: {fileID: 5133360583629452427}
     - target: {fileID: 3403054262318187088, guid: 2881373a40d88a5499092a047886e1b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1083,6 +1083,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7303808635939180807, guid: a1ea39da52dbf184283bf7c331a7227b,
+        type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1150737802}
     - target: {fileID: 5133360582444545071, guid: a1ea39da52dbf184283bf7c331a7227b,
         type: 3}
       propertyPath: m_Name

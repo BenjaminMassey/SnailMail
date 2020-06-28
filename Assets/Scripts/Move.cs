@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public float MoveSpeed = 5.0f;
+
     public GameObject world;
     public Transform my_bottom;
-    public Transform world_top;
     public GameObject snail_obj;
 
     private float my_height;
@@ -30,43 +31,18 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TestMove();
-        
-        transform.LookAt(world.transform);
-
-        transform.Rotate(-90.0f, 0.0f, 0.0f);
-
-        world.transform.LookAt(transform);
-
-        world.transform.Rotate(90.0f, 0.0f, 0.0f);
-
-        if (!my_bottom.position.ToString().Equals(world_top.position.ToString()))
-        {
-            float distance = Vector3.Distance(my_bottom.position, world_top.position);
-
-            if (distance > 0.4f)
-            {
-                Vector3 p = my_bottom.position - world_top.position;
-                float r = Mathf.Sqrt(Mathf.Pow(p.x, 2.0f) + Mathf.Pow(p.y, 2.0f) + Mathf.Pow(p.z, 2.0f));
-                float direction;
-                if (r < world_height) { direction = 1.0f; }
-                else if (r > world_height) { direction = -1.0f; }
-                else { direction = 0.0f; }
-                
-                transform.Translate(Vector3.up * distance * direction, Space.Self);
-            }
-        }
-
         HandleMove();
+
+        Gravity();
     }
 
     void HandleMove()
     {
         float horInp = 0.0f;
-        if (Input.GetKey(KeyCode.Mouse0)) { horInp = 1.0f; }
+        if (Input.GetKey(KeyCode.Mouse1)) { horInp = 1.0f; }
 
         float verInp = 0.0f;
-        if (Input.GetKey(KeyCode.Mouse1)) { verInp = 1.0f; }
+        if (Input.GetKey(KeyCode.Mouse0)) { verInp = 1.0f; }
 
         if (horInp + verInp == 2.0f)
         {
@@ -74,7 +50,9 @@ public class Move : MonoBehaviour
             verInp *= 0.66f;
         }
 
-        Vector3 move = new Vector3(horInp, 0.0f, verInp) * 0.1f;
+        Vector3 move = new Vector3(horInp, 0.0f, verInp);
+
+        move *= Time.deltaTime * MoveSpeed;
 
         transform.Translate(move);
 
@@ -90,24 +68,27 @@ public class Move : MonoBehaviour
         }
     }
 
-    void TestMove()
+    void Gravity()
     {
-        float horInp = 0.0f;
-        if (Input.GetKey(KeyCode.A)) { horInp += -1.0f; }
-        if (Input.GetKey(KeyCode.D)) { horInp += 1.0f; }
+        transform.LookAt(world.transform);
 
-        float verInp = 0.0f;
-        if (Input.GetKey(KeyCode.S)) { verInp += -1.0f; }
-        if (Input.GetKey(KeyCode.W)) { verInp += 1.0f; }
+        Vector3 p = my_bottom.transform.position;
 
-        if (Mathf.Abs(horInp) + Mathf.Abs(verInp) == 2.0f)
+        float r = Mathf.Sqrt(Mathf.Pow(p.x, 2.0f) + Mathf.Pow(p.y, 2.0f) + Mathf.Pow(p.z, 2.0f));
+        
+        if (r > world_height)
         {
-            horInp *= 0.66f;
-            verInp *= 0.66f;
+            float dist = r - world_height;
+            if (dist > 0.1f)
+            {
+                transform.Translate(Vector3.forward * 0.1f, Space.Self);
+            }
+            else
+            {
+                transform.Translate(Vector3.forward * dist, Space.Self);
+            }
         }
 
-        Vector3 move = new Vector3(horInp, 0.0f, verInp) * 0.1f;
-
-        transform.Translate(move);
+        transform.Rotate(-90.0f, 0.0f, 0.0f);
     }
 }
