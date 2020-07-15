@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class End : MonoBehaviour
 {
 
+    public int numLevels = 8;
+
     public AudioSource Cheer;
     public AudioSource Aww;
 
@@ -61,8 +63,16 @@ public class End : MonoBehaviour
         yield return new WaitForSeconds(delay);
         string levelStr = SceneManager.GetActiveScene().name;
         levelStr = levelStr.Replace("Level", "");
-        int level = int.Parse(levelStr);
-        SceneManager.LoadScene("Level" + (level + 1).ToString());
+        int levelNum = int.Parse(levelStr);
+        string levelName = "Level" + (levelNum + 1).ToString();
+        if (levelNum < numLevels)
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        else
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
     }
 
     private int NumCollected()
