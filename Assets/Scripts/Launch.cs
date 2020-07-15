@@ -67,16 +67,19 @@ public class Launch : MonoBehaviour
         Debug.Log("Attempted Launch.Send(), doing: " + doing);
         if (!doing)
         {
+            Debug.Log("ATTEMPTING A LAUNCH PASSED");
             doing = true;
             GameObject character = GameObject.Find("Character");
             int amount = 10;
-            if (direction.Equals(Vector3.up)) { amount = 20;  }
+            float x = 1.0f;
+            if (direction.Equals(Vector3.up)) { amount = 30;  x = 0.6f; character.GetComponent<Move>().gravity_on = false; }
             for (int i = 0; i < amount; i++)
             {
-                character.transform.Translate(direction * 0.4f);
+                character.transform.Translate(direction * 0.4f * x);
                 yield return new WaitForFixedUpdate();
             }
             doing = false;
+            character.GetComponent<Move>().gravity_on = true;
             Destroy(gameObject);
         }
     }

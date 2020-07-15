@@ -5,19 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ButtonReset()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Resetter.Reset();
-        }
+        Resetter.Reset();
     }
 }
 
@@ -26,6 +16,8 @@ public static class Resetter
     public static void Reset()
     {
         Debug.Log("Resetter.Reset() called");
+        Buttons.up_button = false;
+        Buttons.right_button = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

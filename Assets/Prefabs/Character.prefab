@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5133360582444545069}
   - component: {fileID: 5133360582444545068}
   - component: {fileID: 5133360582444545057}
-  - component: {fileID: 5133360582444545062}
   - component: {fileID: 1296847148181978031}
   - component: {fileID: 1320918531597637285}
   - component: {fileID: 7303808635939180807}
@@ -106,18 +105,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &5133360582444545062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5133360582444545071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db37aa72e5608094fb32228429ca96c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1296847148181978031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,9 +226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caba7afaab87eb44a98346c597520cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 5
+  GravSpeed: 5
   world: {fileID: 0}
   my_bottom: {fileID: 5133360582906248847}
   snail_obj: {fileID: 7096614502313315133}
+  gravity_on: 0
 --- !u!1 &5133360582906248846
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133360583166931295}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5133360582444545059}
