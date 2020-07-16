@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4319581565669336526}
   - component: {fileID: 4319581565669336514}
   - component: {fileID: 5053756753788886233}
-  - component: {fileID: 6047674700159563858}
+  - component: {fileID: 1569071272867534124}
+  - component: {fileID: 5850917810089289369}
   m_Layer: 0
   m_Name: Killer
   m_TagString: Untagged
@@ -204,7 +205,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6047674700159563858
+--- !u!114 &1569071272867534124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,10 +214,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4319581565669336527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78dee26ff6e42604a8fce3fa48b1e05f, type: 3}
+  m_Script: {fileID: 11500000, guid: ac04a5704cbb44b4bad56b67a6aeb114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object_to_Face: {fileID: 0}
+  offset: 0.45
+--- !u!114 &5850917810089289369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319581565669336527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfc234be6b38db488ecf10cc2988030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5335421414897919345
 GameObject:
   m_ObjectHideFlags: 0
