@@ -11,31 +11,32 @@ public class Launch : MonoBehaviour
     private Vector3 direction;
 
     private GameObject character;
+    private GameObject bottom;
     private Vector3 char_pos;
+    private Vector3 bottom_pos;
     private Vector3 my_pos;
+    private Collider col;
 
     void Start()
     {
-        character = GameObject.Find("Bottom");
+        //character = GameObject.Find("Bottom");
+        character = GameObject.Find("Character");
+        bottom = GameObject.Find("Bottom");
     }
 
     private void Update()
     {
         char_pos = character.transform.position;
+        bottom_pos = bottom.transform.position;
         my_pos = transform.position;
-        
-        if (/*Close(Mathf.Round(char_pos.x), Mathf.Round(my_pos.x)) &&
-            Close(Mathf.Round(char_pos.y), Mathf.Round(my_pos.y)) &&
-            Close(Mathf.Round(char_pos.z), Mathf.Round(my_pos.z))*/
-            GetComponent<Collider>().bounds.Contains(char_pos))
+
+        col = GetComponent<Collider>();
+
+        if (col.bounds.Contains(char_pos) ||
+            col.bounds.Contains(bottom_pos))
         {
             Do();
         }
-    }
-
-    bool Close(float a, float b)
-    {
-        return Mathf.Abs(a - b) <= 0.985f;
     }
 
     private void Do()
