@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 896970757351168310}
   - component: {fileID: 896970757351168306}
   - component: {fileID: 896970757351168307}
+  - component: {fileID: 723847167487086444}
   m_Layer: 0
   m_Name: LaunchJump
   m_TagString: Untagged
@@ -203,6 +204,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &723847167487086444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896970757351168313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04a5704cbb44b4bad56b67a6aeb114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -0.2
 --- !u!1001 &896970756999420353
 PrefabInstance:
   m_ObjectHideFlags: 0

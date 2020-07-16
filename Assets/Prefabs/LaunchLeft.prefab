@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 1467291331551912140}
   - component: {fileID: 7172703879189132486}
   - component: {fileID: 8272049794972080368}
+  - component: {fileID: 4317953547990941563}
   m_Layer: 0
   m_Name: LaunchLeft
   m_TagString: Untagged
@@ -313,6 +314,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &4317953547990941563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467291331551912129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04a5704cbb44b4bad56b67a6aeb114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -0.06
 --- !u!1001 &9122644823501073521
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,5 +26,25 @@ public class CorrectRadius : MonoBehaviour
         //Debug.Log("World radius: " + world_radius + " | My radius: " + r + " | Moved amount: " + dist + "(Offset " + offset + ")");
 
         transform.rotation = orig_rot;
+
+        if (name.Contains("Jump"))
+        {
+            Correct(new Vector3(-35.0f, -90.0f, 90.0f));
+        }
+        else if (name.Contains("Launch"))
+        {
+            Correct(new Vector3(0.0f, -90.0f, 0.0f));
+        }
+    }
+
+    void Correct(Vector3 rot_amount)
+    {
+        GameObject world = GameObject.Find("World");
+
+        //Quaternion orig_rot = transform.rotation;
+
+        transform.LookAt(world.transform);
+
+        transform.Rotate(rot_amount);
     }
 }
