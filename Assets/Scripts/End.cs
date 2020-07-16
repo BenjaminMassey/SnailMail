@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-
-    public int numLevels = 8;
+    private int numLevels = 10;
 
     public AudioSource Cheer;
     public AudioSource Aww;
