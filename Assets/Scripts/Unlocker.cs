@@ -23,7 +23,7 @@ public class Unlocker : MonoBehaviour
             level_button.enabled = Unlocks.level_done[i];
             if (!Unlocks.level_done[i])
             {
-                level_button_obj.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f);
+                level_button_obj.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
             }
         }
     }
