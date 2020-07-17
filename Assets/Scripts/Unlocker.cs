@@ -26,12 +26,22 @@ public class Unlocker : MonoBehaviour
 
     public void UpdateButtons()
     {
-        for (int i = 1; i < Unlocks.num_levels; i++)
+        int start_point = GameObject.Find("Canvas").GetComponent<PageHandler>().page * 10;
+        int end_point = start_point + 10;
+        end_point = Mathf.Min(Unlocks.num_levels, end_point);
+        Debug.Log("start_point: " + start_point + " | end_point: " + end_point);
+        for (int i = start_point; i < end_point; i++)
         {
-            GameObject level_button_obj = GameObject.Find("Level" + (i + 1) + " Button");
+            string button_name = "Level" + (i + 1) + " Button";
+            GameObject level_button_obj = GameObject.Find(button_name);
+            //Debug.Log("Trying to use button: " + button_name);
             Button level_button = level_button_obj.GetComponent<Button>();
             level_button.enabled = Unlocks.level_done[i];
-            if (!Unlocks.level_done[i])
+            if (Unlocks.level_done[i])
+            {
+                level_button_obj.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f);
+            }
+            else
             {
                 level_button_obj.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
             }
@@ -83,9 +93,16 @@ public static class Unlocks
                     while (sr.Peek() >= 0)
                     {
                         if (i >= num_levels) { break; }
-                        char c = (char)sr.Read();
-                        //Debug.Log("CHAR READ: " + c.ToString());
-                        level_done[i] = c == '1';
+                        try
+                        {
+                            char c = (char)sr.Read();
+                            //Debug.Log("CHAR READ: " + c.ToString());
+                            level_done[i] = c == '1';
+                        }
+                        catch (Exception e)
+                        {
+                            level_done[i] = false;
+                        }
                         i++;
                     }
 
@@ -103,7 +120,8 @@ public static class Unlocks
 
     public static void ResetData()
     {
-        for (int i = 0; i < num_levels; i++)
+        level_done[0] = true;
+        for (int i = 1; i < num_levels; i++)
         {
             level_done[i] = false;
         }
