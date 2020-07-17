@@ -9,6 +9,12 @@ public class Reset : MonoBehaviour
     {
         Resetter.Reset();
     }
+
+    public void ButtonResetData()
+    {
+        Unlocks.ResetData();
+        GameObject.Find("Canvas").GetComponent<Unlocker>().UpdateButtons();
+    }
 }
 
 public static class Resetter

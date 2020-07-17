@@ -85,6 +85,8 @@ public class End : MonoBehaviour
         levelStr = levelStr.Replace("Level", "");
         int levelNum = int.Parse(levelStr);
         Unlocks.level_done[levelNum] = true;
+
+        Unlocks.SaveData();
     }
 
     private int NumCollected()
