@@ -84,7 +84,10 @@ public class End : MonoBehaviour
         string levelStr = SceneManager.GetActiveScene().name;
         levelStr = levelStr.Replace("Level", "");
         int levelNum = int.Parse(levelStr);
-        Unlocks.level_done[levelNum] = true;
+        if (levelNum < Unlocks.num_levels)
+        {
+            Unlocks.level_done[levelNum] = true;
+        }
 
         Unlocks.SaveData();
     }

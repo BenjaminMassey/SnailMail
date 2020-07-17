@@ -29,7 +29,7 @@ public class Unlocker : MonoBehaviour
         int start_point = GameObject.Find("Canvas").GetComponent<PageHandler>().page * 10;
         int end_point = start_point + 10;
         end_point = Mathf.Min(Unlocks.num_levels, end_point);
-        Debug.Log("start_point: " + start_point + " | end_point: " + end_point);
+        //Debug.Log("start_point: " + start_point + " | end_point: " + end_point);
         for (int i = start_point; i < end_point; i++)
         {
             string button_name = "Level" + (i + 1) + " Button";
@@ -52,7 +52,7 @@ public class Unlocker : MonoBehaviour
 public static class Unlocks
 {
     public static bool initialized = false;
-    public static int num_levels = 10;
+    public static int num_levels = 11;
     public static bool[] level_done = new bool[num_levels];
     public static string file_path;
 
