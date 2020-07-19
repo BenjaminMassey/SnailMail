@@ -11,10 +11,11 @@ public class Unlocker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Unlocks.file_path = Application.persistentDataPath + "/data.save";
+        Unlocks.file_path = Application.persistentDataPath + "/snailmail.save";
         if (!Unlocks.initialized)
         {
-            for (int i = 0; i < Unlocks.num_levels; i++)
+            Unlocks.level_done[0] = true;
+            for (int i = 1; i < Unlocks.num_levels; i++)
             {
                 Unlocks.level_done[i] = false;
             }
@@ -52,7 +53,7 @@ public class Unlocker : MonoBehaviour
 public static class Unlocks
 {
     public static bool initialized = false;
-    public static int num_levels = 11;
+    public static int num_levels = 13;
     public static bool[] level_done = new bool[num_levels];
     public static string file_path;
 
