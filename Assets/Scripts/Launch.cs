@@ -71,6 +71,15 @@ public class Launch : MonoBehaviour
             Debug.Log("ATTEMPTING A LAUNCH PASSED");
             doing = true;
             GameObject character = GameObject.Find("Character");
+            /* Snap player to pad pos in order to normalize positioning
+            int frames = 3;
+            Vector3 snap_step = (transform.position - character.transform.position) / frames;
+            for (int i = 0; i < frames; i++)
+            {
+                character.transform.Translate(snap_step);
+                yield return new WaitForFixedUpdate();
+            }
+            */
             int amount = 10;
             float x = 1.0f;
             if (direction.Equals(Vector3.up)) { amount = 30;  x = 0.6f; character.GetComponent<Move>().gravity_on = false; }
