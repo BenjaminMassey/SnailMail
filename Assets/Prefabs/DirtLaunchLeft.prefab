@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8272049794972080368}
   - component: {fileID: 4317953547990941563}
   m_Layer: 0
-  m_Name: LaunchLeft
+  m_Name: DirtLaunchLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,8 +188,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.434489, y: 0.5, z: 0.5}
-  m_Center: {x: 5.7172446, y: 0, z: 0}
+  m_Size: {x: 1.7652016, y: 1.0632246, z: 1.1504927}
+  m_Center: {x: 0.38260078, y: -0.017629534, z: -0.09126592}
 --- !u!114 &1467291331551912140
 MonoBehaviour:
   m_ObjectHideFlags: 0
