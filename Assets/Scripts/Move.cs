@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     public GameObject snail_obj;
 
     public bool gravity_on;
+    public bool move_on;
 
     private float my_height;
     private float world_height;
@@ -31,6 +32,7 @@ public class Move : MonoBehaviour
         facing_up = true;
 
         gravity_on = true;
+        move_on = true;
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class Move : MonoBehaviour
 
     void HandleMove()
     {
+        if (!move_on) { return; }
         float horInp = 0.0f;
         float verInp = 0.0f;
         /*
