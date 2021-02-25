@@ -80,7 +80,8 @@ public class Launch : MonoBehaviour
             doing = true;
             GameObject character = GameObject.Find("Character");
             Move mover = character.GetComponent<Move>();
-            // Snap player to pad pos in order to normalize positioning
+            /* This is probably better, but currently hard to work with, so not using
+             * Snap player to pad pos in order to normalize positioning
             int frames = 3;
             Vector3 snap_step = (transform.position - character.transform.position) / frames;
             for (int i = 0; i < frames; i++)
@@ -88,7 +89,7 @@ public class Launch : MonoBehaviour
                 character.transform.Translate(snap_step);
                 yield return new WaitForFixedUpdate();
             }
-            
+            */
             int amount = 10;
             float x = 1.0f;
             if (direction.Equals(Vector3.up)) { amount = 30; x = 0.6f; mover.gravity_on = false; }
