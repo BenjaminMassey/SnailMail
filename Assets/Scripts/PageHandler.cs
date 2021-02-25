@@ -13,6 +13,8 @@ public class PageHandler : MonoBehaviour
     private GameObject up_button;
     private GameObject down_button;
 
+    private Color def_color;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class PageHandler : MonoBehaviour
         {
             buttons[i] = GameObject.Find("Level" + (i + 1).ToString() + " Button");
         }
+        def_color = buttons[0].GetComponent<Button>().colors.normalColor;
 
         up_button = GameObject.Find("Up Button");
         down_button = GameObject.Find("Down Button");
@@ -76,6 +79,19 @@ public class PageHandler : MonoBehaviour
         buttons[rel_num].GetComponent<Button>().enabled = true;
         buttons[rel_num].transform.GetChild(0).GetComponent<Text>().enabled = true;
         buttons[rel_num].transform.GetChild(0).GetComponent<Text>().text = "Level " + str_num;
+
+        ColorBlock cb = buttons[rel_num].GetComponent<Button>().colors;
+        if (num > 12) // Moon Levels Color
+        {
+            cb.normalColor = new Color(0.4f, 0, 0.4f);
+            buttons[rel_num].transform.GetChild(0).GetComponent<Text>().color = new Color(1, 1, 1);
+        }
+        else
+        {
+            cb.normalColor = def_color;
+            buttons[rel_num].transform.GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
+        }
+        buttons[rel_num].GetComponent<Button>().colors = cb;
     }
 
     void UpdateNavButtons()
