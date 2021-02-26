@@ -53,7 +53,7 @@ public class Unlocker : MonoBehaviour
 public static class Unlocks
 {
     public static bool initialized = false;
-    public static int num_levels = 14;
+    public static int num_levels = 15;
     public static bool[] level_done = new bool[num_levels];
     public static string file_path;
 
