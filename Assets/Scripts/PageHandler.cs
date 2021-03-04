@@ -106,7 +106,7 @@ public class PageHandler : MonoBehaviour
             up_button.SetActive(true);
         }
 
-        if (page == (Unlocks.num_levels / 10) || Unlocks.num_levels <= 10)
+        if (page == (Unlocks.num_levels / 10) - 1 || Unlocks.num_levels <= 10)
         {
             down_button.SetActive(false);
         }
