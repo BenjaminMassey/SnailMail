@@ -45,6 +45,7 @@ public class Unlocker : MonoBehaviour
             else
             {
                 level_button_obj.GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f);
+                level_button_obj.transform.GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
             }
         }
     }
