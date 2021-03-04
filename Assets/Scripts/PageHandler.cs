@@ -75,9 +75,6 @@ public class PageHandler : MonoBehaviour
         int rel_num = num % 10;
         string str_num = (num + 1).ToString();
         buttons[rel_num].name = "Level" + str_num + " Button";
-        buttons[rel_num].GetComponent<Image>().enabled = true;
-        buttons[rel_num].GetComponent<Button>().enabled = true;
-        buttons[rel_num].transform.GetChild(0).GetComponent<Text>().enabled = true;
         buttons[rel_num].transform.GetChild(0).GetComponent<Text>().text = "Level " + str_num;
 
         ColorBlock cb = buttons[rel_num].GetComponent<Button>().colors;
@@ -92,6 +89,10 @@ public class PageHandler : MonoBehaviour
             buttons[rel_num].transform.GetChild(0).GetComponent<Text>().color = new Color(0, 0, 0);
         }
         buttons[rel_num].GetComponent<Button>().colors = cb;
+
+        buttons[rel_num].GetComponent<Image>().enabled = true;
+        buttons[rel_num].GetComponent<Button>().enabled = true;
+        buttons[rel_num].transform.GetChild(0).GetComponent<Text>().enabled = true;
     }
 
     void UpdateNavButtons()

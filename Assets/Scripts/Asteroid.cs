@@ -37,7 +37,6 @@ public class Asteroid : MonoBehaviour
         while (true)
         {
             // Setup
-            Debug.Log("Travel segment started");
             my_mesh_renderer.enabled = true;
             my_col.enabled = true;
             transform.localScale = start_scale;
@@ -71,7 +70,6 @@ public class Asteroid : MonoBehaviour
             }
             float speed_random = Random.Range(0.8f, 1.2f);
             speed = orig_speed * speed_random;
-            Debug.Log("Travel segment done");
         }
     }
 }

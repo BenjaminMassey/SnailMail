@@ -44,6 +44,7 @@ public class End : MonoBehaviour
             int count = NumCollected();
             if (count == 0)
             {
+                LevelEnd.level_completed = true;
                 Cheer.Play();
                 MessageHandler.Message("You delivered the mail!", delay);
                 StartCoroutine("ShowResults");
@@ -97,4 +98,9 @@ public class End : MonoBehaviour
         GameObject[] c = GameObject.FindGameObjectsWithTag("Collectable");
         return c.Length;
     }
+}
+
+public static class LevelEnd
+{
+    public static bool level_completed = false;
 }

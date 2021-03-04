@@ -54,7 +54,7 @@ public class Unlocker : MonoBehaviour
 public static class Unlocks
 {
     public static bool initialized = false;
-    public static int num_levels = 16;
+    public static int num_levels = 17;
     public static bool[] level_done = new bool[num_levels];
     public static string file_path;
 
@@ -101,7 +101,7 @@ public static class Unlocks
                             //Debug.Log("CHAR READ: " + c.ToString());
                             level_done[i] = c == '1';
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             level_done[i] = false;
                         }
