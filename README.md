@@ -19,7 +19,7 @@ to the right! With letters all around you, you will need to find more creative
 ways to travel around. Much of your experience will be avoiding harmful salt
 while figuring out the path to various letters, so tread carefully.
 
-# Distribution
+## Distribution
 
 The current plan is to put this game on the Google Play Store for Android devices,
 but that is currently a work in progress. This text will be updated when the
