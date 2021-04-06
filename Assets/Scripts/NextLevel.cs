@@ -18,7 +18,7 @@ public class NextLevel : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("LevelSelect");
+            SceneManager.LoadScene("End");
         }
     }
 }
