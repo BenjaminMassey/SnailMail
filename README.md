@@ -1,16 +1,16 @@
-## Snail Mail
+# Snail Mail
 
-# Overview
+## Overview
 
 Snail Mail is a video game written in C# using the Unity Engine.
 It is designed for mobile devices, and currently is only for
 Android devices.
 
-# The Game
+## The Game
 
 ![Cover Art](https://i.imgur.com/gr9MSsI.png)
 
-You are a snail mailman, who must collect scatter letters and deliver them
+You are a snail mailman, who must collect scattered letters and deliver them
 to the nearby home. This will involve many obstacles, but you need to deal
 with them in order to finish your job and go back to your family.
 
@@ -27,11 +27,11 @@ game is posted there. In addition, this source code should be able to be built
 via Unity. The main piece to note is that it was made with version 2019.1.14f1,
 which may be required in order for the project to work correctly.
 
-# Credits
+## Credits
 
 This game was made entirely by Benjamin Massey.
 
-However, many art sources were used, and they are credited in sources.txt
+However, many art sources were used, and they are credited in Assets/SOURCES.txt
 
 In addition, all of these sources will be listed in a "Credits" page available
 within the game itself.
@@ -39,6 +39,6 @@ within the game itself.
 Thank you to every artist who created a wonderful asset that was needed to make
 this game possible.
 
-# Contact
+## Contact
 
 Feel free to contact benjamin.w.massey@gmail.com for any inquiries.
