@@ -33,8 +33,9 @@ This game was made entirely by Benjamin Massey.
 
 However, many art sources were used, and they are credited in Assets/SOURCES.txt
 
-In addition, all of these sources will be listed in a "Credits" page available
-within the game itself (currently a future plan).
+In addition, all of these sources are listed in a credits page available
+within the game itself via the "Credits" button in the bottom left of the
+level select menu.
 
 Thank you to every artist who created a wonderful asset that was needed to make
 this game possible.
