@@ -9,6 +9,7 @@ public class LevelSelectButton : MonoBehaviour
     {
         // Name will be "LevelX Button". Want to load "LevelX"
         string[] parts = name.Split(' ');
+        LevelEnd.level_completed = false;
         SceneManager.LoadScene(parts[0]);
     }
 }

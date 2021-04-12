@@ -8,6 +8,7 @@ public class NextLevel : MonoBehaviour
     public void Perform()
     {
         //yield return new WaitForSeconds(delay);
+        LevelEnd.level_completed = false;
         string levelStr = SceneManager.GetActiveScene().name;
         levelStr = levelStr.Replace("Level", "");
         int levelNum = int.Parse(levelStr);

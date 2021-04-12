@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7303808635939180807}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   my_bottom: {fileID: 5133360582906248847}
   snail_obj: {fileID: 7096614502313315133}
   gravity_on: 0
+  move_on: 0
 --- !u!1 &5133360582906248846
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Kill : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (LevelEnd.level_completed) return;
-        if (other.gameObject.name.Equals("Character"))
+        if (other.gameObject.name.Equals("Character") || other.gameObject.CompareTag("Player"))
         {
             Puff.Play();
             Destroy(GameObject.Find("Snail"));
