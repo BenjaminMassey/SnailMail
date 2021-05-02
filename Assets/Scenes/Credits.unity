@@ -512,13 +512,13 @@ MonoBehaviour:
   m_Text: "Snail Mail was conceived, created, and programmed by Ben Massey\nbenjamin.w.massey@gmail.com\n\nMain
     Song\nhttps://freemusicarchive.org/music/Beat_Doctor/Best_Bytes_Volume_1/16--Beat_Doctor--Too_Retro\r\n\r\nPuff
     Sound\r\nhttps://freesound.org/people/Speedenza/sounds/167929/\r\n\r\nAww Sound\r\nhttps://freesound.org/people/phmiller42/sounds/124996/\r\n\r\nBoing
-    Sound\r\nhttps://freesound.org/people/pan14/sounds/334032/\r\n\r\nCheer Sond\r\nhttps://freesound.org/people/jayfrosting/sounds/333404/\r\n\r\nDing
+    Sound\r\nhttps://freesound.org/people/pan14/sounds/334032/\r\n\r\nCheer Sound\r\nhttps://freesound.org/people/jayfrosting/sounds/333404/\r\n\r\nDing
     Sound\r\nhttps://freesound.org/people/MashedTatoes2/sounds/515643/\r\n\r\nSnail
     3D Model\r\nhttps://free3d.com/3d-model/snail-v2--997207.html\r\n\r\nHouse 3D
     Model\r\nhttps://www.cgtrader.com/free-3d-models/exterior/house/fantasy-house-36fc0216-613d-4104-abe1-952265cd6981\r\n\r\nEnvelope
     Image\r\nhttps://wikiclipart.com/envelope-clipart_23418/\r\n\r\nHat 3D Model\r\nhttps://www.cgtrader.com/free-3d-models/character/other/lego-cap\r\n\r\nSalt
     Shaker Image\r\nhttps://www.clipartmax.com/middle/m2i8i8H7m2Z5H7i8_salt-shaker-salt-clip-art/\r\n\r\nGround
-    Texture\r\nhttps://cc0textures.com/view?id=Ground037\r\n\r\nStone 3D MOdel\r\nhttps://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan\r\n\r\nMailbox
+    Texture\r\nhttps://cc0textures.com/view?id=Ground037\r\n\r\nStone 3D Model\r\nhttps://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan\r\n\r\nMailbox
     3D Model\r\nhttps://www.cgtrader.com/free-3d-models/exterior/house/mailbox-9d230736-f26a-4d2c-998d-b773fb6ec15d\r\n\r\nMushroom
     3D Model\r\nhttps://www.cgtrader.com/free-3d-models/plant/other/mushroom-bend\r\n\r\nRock
     Texture\r\nhttps://cc0textures.com/view?id=Rock033\r\n\r\nText Font\r\nhttps://fonts.google.com/specimen/Chewy\r\n\r\nRocket
@@ -881,8 +881,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 321415343}
   m_HandleRect: {fileID: 321415342}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999998
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 162737479}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.21259998
+  m_Size: 0.2126
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

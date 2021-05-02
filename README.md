@@ -21,9 +21,10 @@ while figuring out the path to various letters, so tread carefully.
 
 ## Distribution
 
-The current plan is to put this game on the Google Play Store for Android devices,
-but that is currently a work in progress. This text will be updated when the
-game is posted there. In addition, this source code should be able to be built
+This game is currently on the Google Play Store for Android devices, available
+at this link: https://play.google.com/store/apps/details?id=com.BeanBao.SnailMail 
+
+In addition, this source code should be able to be built
 via Unity. The main piece to note is that it was made with version 2019.1.14f1,
 which may be required in order for the project to work correctly.
 
