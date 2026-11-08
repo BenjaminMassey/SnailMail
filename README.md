@@ -2,9 +2,9 @@
 
 ## Overview
 
-Snail Mail is a video game written in C# using the Unity Engine.
-It is designed for mobile devices, and currently is only for
-Android devices.
+Snail Mail is a video game designed for mobile devices: currently on Android.
+
+Originally written in C# using the Unity Engine, but later rewritten in Godot with GDScript.
 
 ## The Game
 
@@ -24,15 +24,13 @@ while figuring out the path to various letters, so tread carefully.
 This game is currently on the Google Play Store for Android devices, available
 at this link: https://play.google.com/store/apps/details?id=com.BeanBao.SnailMail 
 
-In addition, this source code should be able to be built
-via Unity. The main piece to note is that it was made with version 2019.1.14f1,
-which may be required in order for the project to work correctly.
+In addition, this source code should be able to be built via Godot: most recently built with Godot 4.7.2.
 
 ## Credits
 
 This game was made entirely by Benjamin Massey.
 
-However, many art sources were used, and they are credited in Assets/SOURCES.txt
+However, many art sources were used, and they are credited in assets/SOURCES.txt
 
 In addition, all of these sources are listed in a credits page available
 within the game itself via the "Credits" button in the bottom left of the
