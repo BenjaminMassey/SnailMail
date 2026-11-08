@@ -12,6 +12,8 @@
 
 [ext_resource type="Script" path="res://scripts/message.gd" id="6_messa"]
 
+[ext_resource type="Script" path="res://scripts/credits_links.gd" id="8_links"]
+
 [ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="7_skybo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
@@ -121,17 +123,22 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Content" type="Control" parent="Canvas/MainSection/Scroll View"]
-mouse_filter = 2
-custom_minimum_size = Vector2(0, 5000)
+[node name="Content" type="MarginContainer" parent="Canvas/MainSection/Scroll View"]
+mouse_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 60
 
 [node name="Credits Text" type="RichTextLabel" parent="Canvas/MainSection/Scroll View/Content"]
 bbcode_enabled = true
-text = "Snail Mail was conceived, created, and programmed by Ben Massey\nbenjamin.w.massey@gmail.com\n\nMain Song\nhttps://freemusicarchive.org/music/Beat_Doctor/Best_Bytes_Volume_1/16--Beat_Doctor--Too_Retro\n\nPuff Sound\nhttps://freesound.org/people/Speedenza/sounds/167929/\n\nAww Sound\nhttps://freesound.org/people/phmiller42/sounds/124996/\n\nBoing Sound\nhttps://freesound.org/people/pan14/sounds/334032/\n\nCheer Sound\nhttps://freesound.org/people/jayfrosting/sounds/333404/\n\nDing Sound\nhttps://freesound.org/people/MashedTatoes2/sounds/515643/\n\nSnail 3D Model\nhttps://free3d.com/3d-model/snail-v2--997207.html\n\nHouse 3D Model\nhttps://www.cgtrader.com/free-3d-models/exterior/house/fantasy-house-36fc0216-613d-4104-abe1-952265cd6981\n\nEnvelope Image\nhttps://wikiclipart.com/envelope-clipart_23418/\n\nHat 3D Model\nhttps://www.cgtrader.com/free-3d-models/character/other/lego-cap\n\nSalt Shaker Image\nhttps://www.clipartmax.com/middle/m2i8i8H7m2Z5H7i8_salt-shaker-salt-clip-art/\n\nGround Texture\nhttps://cc0textures.com/view?id=Ground037\n\nStone 3D Model\nhttps://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan\n\nMailbox 3D Model\nhttps://www.cgtrader.com/free-3d-models/exterior/house/mailbox-9d230736-f26a-4d2c-998d-b773fb6ec15d\n\nMushroom 3D Model\nhttps://www.cgtrader.com/free-3d-models/plant/other/mushroom-bend\n\nRock Texture\nhttps://cc0textures.com/view?id=Rock033\n\nText Font\nhttps://fonts.google.com/specimen/Chewy\n\nRocket 3D Model\nhttps://www.cgtrader.com/free-3d-models/aircraft/jet/rocket-3d-render"
+text = "Snail Mail was conceived, created, and programmed by Ben Massey\n[url=mailto:benjamin.w.massey@gmail.com]benjamin.w.massey@gmail.com[/url]\n\nMain Song\n[url]https://freemusicarchive.org/music/Beat_Doctor/Best_Bytes_Volume_1/16--Beat_Doctor--Too_Retro[/url]\n\nPuff Sound\n[url]https://freesound.org/people/Speedenza/sounds/167929/[/url]\n\nAww Sound\n[url]https://freesound.org/people/phmiller42/sounds/124996/[/url]\n\nBoing Sound\n[url]https://freesound.org/people/pan14/sounds/334032/[/url]\n\nCheer Sound\n[url]https://freesound.org/people/jayfrosting/sounds/333404/[/url]\n\nDing Sound\n[url]https://freesound.org/people/MashedTatoes2/sounds/515643/[/url]\n\nSnail 3D Model\n[url]https://free3d.com/3d-model/snail-v2--997207.html[/url]\n\nHouse 3D Model\n[url]https://www.cgtrader.com/free-3d-models/exterior/house/fantasy-house-36fc0216-613d-4104-abe1-952265cd6981[/url]\n\nEnvelope Image\n[url]https://wikiclipart.com/envelope-clipart_23418/[/url]\n\nHat 3D Model\n[url]https://www.cgtrader.com/free-3d-models/character/other/lego-cap[/url]\n\nSalt Shaker Image\n[url]https://www.clipartmax.com/middle/m2i8i8H7m2Z5H7i8_salt-shaker-salt-clip-art/[/url]\n\nGround Texture\n[url]https://cc0textures.com/view?id=Ground037[/url]\n\nStone 3D Model\n[url]https://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan[/url]\n\nMailbox 3D Model\n[url]https://www.cgtrader.com/free-3d-models/exterior/house/mailbox-9d230736-f26a-4d2c-998d-b773fb6ec15d[/url]\n\nMushroom 3D Model\n[url]https://www.cgtrader.com/free-3d-models/plant/other/mushroom-bend[/url]\n\nRock Texture\n[url]https://cc0textures.com/view?id=Rock033[/url]\n\nText Font\n[url]https://fonts.google.com/specimen/Chewy[/url]\n\nRocket 3D Model\n[url]https://www.cgtrader.com/free-3d-models/aircraft/jet/rocket-3d-render[/url]"
 scroll_active = false
+fit_content = true
+script = ExtResource("8_links")
 theme_override_fonts/normal_font = ExtResource("5_chewy")
 theme_override_fonts/italics_font = SubResource("FontVariation_2")
 theme_override_fonts/bold_font = SubResource("FontVariation_3")
@@ -144,23 +151,12 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
+mouse_filter = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_top = 0
-anchor_right = 0.5
-anchor_bottom = 0
-offset_left = -350
-offset_top = 25
-offset_right = 350
-offset_bottom = 4775
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Message" type="Node" parent="Canvas/MainSection/Scroll View/Content/Credits Text"]
 script = ExtResource("6_messa")
