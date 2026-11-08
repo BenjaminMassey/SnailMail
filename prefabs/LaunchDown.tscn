@@ -1,0 +1,49 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/boing.wav" id="1_boing"]
+
+[ext_resource type="Script" path="res://scripts/launch.gd" id="2_launc"]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="3_corre"]
+
+[ext_resource type="ArrayMesh" path="res://meshes/Plane.res" id="4_plane"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/LeftArrow 1.tres" id="5_lefta"]
+
+[ext_resource type="PackedScene" path="res://assets/Stone.FBX" id="6_stone"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(9.018258, 0.5, 0.5)
+
+[node name="LaunchDown" type="Area3D"]
+collision_layer = 1
+collision_mask = 2
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.93, -2.26, 1.33)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.009129, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="boing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_boing")
+volume_db = -10.46
+
+[node name="Launch" type="Node" parent="." node_paths=PackedStringArray("boing")]
+script = ExtResource("2_launc")
+boing = NodePath("../boing")
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("3_corre")
+offset = -0.06
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_plane")
+surface_material_override/0 = ExtResource("5_lefta")
+cast_shadow = 0
+transform = Transform3D(0, -4, 0, -0.1, 0, 0, 0, 0, -0.08, -0.5200005, 0, 0)
+
+[node name="Stone" type="Node3D" parent="."]
+transform = Transform3D(0, 0, 0.7000002, 0.606218, -0.3500002, 0, 0.3500002, 0.6062181, 0, 0, -0.032, -0.03499997)
+
+[node name="Model" parent="Stone" instance=ExtResource("6_stone")]
+transform = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/simple_movement.gdshader" id="1_simpl"]
+
+[resource]
+resource_name = "Collectable"
+render_priority = 0
+shader = ExtResource("1_simpl")
+shader_parameter/color = Color(1, 0.9666, 0, 0)

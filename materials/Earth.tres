@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Rock033_2K-JPG/Rock033_2K_Color.jpg" id="1_rock0"]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Rock033_2K-JPG/Rock033_2K_Roughness.jpg" id="2_rock0"]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Rock033_2K-JPG/Rock033_2K_Normal.jpg" id="3_rock0"]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Rock033_2K-JPG/Rock033_2K_AmbientOcclusion.jpg" id="4_rock0"]
+
+[resource]
+resource_name = "Earth"
+albedo_color = Color(1, 0.9544, 0, 1)
+albedo_texture = ExtResource("1_rock0")
+metallic = 1
+metallic_texture = ExtResource("2_rock0")
+metallic_texture_channel = 0
+metallic_specular = 0.5
+roughness = 0.81
+normal_enabled = true
+normal_scale = 1
+normal_texture = ExtResource("3_rock0")
+ao_enabled = true
+ao_texture = ExtResource("4_rock0")

@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="ArrayMesh" path="res://meshes/Fantasy_House_6.res" id="1_fanta"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Fantasy House.tres" id="2_fanta"]
+
+[node name="Fantasy_House_6" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 4.371139e-08, 0, -4.371139e-08, 1, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fanta")
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_fanta")

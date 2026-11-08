@@ -1,0 +1,291 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Collectable.tscn" id="2_colle"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Killer.tscn" id="3_kille"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchJump.tscn" id="4_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/LaunchJump.tscn" id="5_launc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchLeft.tscn" id="6_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchDown.tscn" id="7_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="8_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="9_level"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="10_canva"]
+
+[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="11_skybo"]
+
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="12_vigne"]
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = ExtResource("11_skybo")
+
+[sub_resource type="Environment" id="Environment_2"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.05
+glow_hdr_threshold = 1
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+shader = ExtResource("12_vigne")
+
+[node name="Level12" type="Node3D"]
+
+[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
+transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+
+[node name="Collectable (4)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.735324, 2.88659, -3.030777)
+
+[node name="Killer (23)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4320106, 4.379296, -2.373843)
+
+[node name="Killer (16)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.948265, 2.223365, -4.032482)
+
+[node name="Killer (8)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.202537, 0.7483182, -3.766135)
+
+[node name="Killer (17)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.560181, 3.178149, -3.530607)
+
+[node name="Collectable (5)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.249011, 3.72555, -2.462157)
+
+[node name="Killer (18)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.829965, 1.047494, -3.038771)
+
+[node name="Killer (21)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.067365, 3.80981, -3.057136)
+
+[node name="Killer (22)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.773828, 3.857791, -1.556701)
+
+[node name="Killer (25)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02663159, 4.716862, -1.658463)
+
+[node name="Collectable (7)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25862, -2.416926, -2.922306)
+
+[node name="CorrectRadius" parent="Collectable (7)"]
+offset = 7.2
+
+[node name="Killer (24)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.190377, 4.412255, -0.8568854)
+
+[node name="Collectable (6)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.686033, 4.368724, -1.752581)
+
+[node name="Killer (19)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7165, 2.136266, -2.573712)
+
+[node name="Killer (15)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.238456, 1.130768, -4.325583)
+
+[node name="Killer (20)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.260101, 3.133766, -2.133367)
+
+[node name="DirtLaunchJump (1)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.726, -2.546, -3.628)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (1)"]
+offset = 3.5
+
+[node name="Collectable (3)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.042541, 1.920822, -3.471798)
+
+[node name="Collectable (2)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.726289, -2.523707, -2.178456)
+
+[node name="CorrectRadius" parent="Collectable (2)"]
+offset = 1.5
+
+[node name="Collectable (1)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77164, -0.7592835, -1.286445)
+
+[node name="CorrectRadius" parent="Collectable (1)"]
+offset = 2.8
+
+[node name="Collectable" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98, -3.41, 0.086)
+
+[node name="CorrectRadius" parent="Collectable"]
+offset = 8.3
+
+[node name="DirtLaunchJump" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.601043, -3.468752, -0.01457676)
+
+[node name="CorrectRadius" parent="DirtLaunchJump"]
+offset = 4
+
+[node name="LaunchJump" parent="." instance=ExtResource("5_launc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.75, -3.467939, -3.601275, 0.06470054)
+
+[node name="DirtLaunchJump (3)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22, -3.5, -2.000561)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (3)"]
+offset = 2.95
+
+[node name="DirtLaunchLeft (1)" parent="." instance=ExtResource("6_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -3.68, -2.421, -2.05)
+
+[node name="CorrectRadius" parent="DirtLaunchLeft (1)"]
+offset = 7.39
+
+[node name="DirtLaunchJump (2)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.111565, -3.467653, -1.923561)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (2)"]
+offset = 1.45
+
+[node name="DirtLaunchDown" parent="." instance=ExtResource("7_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.54, -0.6640922, -2.48)
+
+[node name="CorrectRadius" parent="DirtLaunchDown"]
+offset = 1.94
+
+[node name="Killer (2)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79, -1.300413, 1.671271)
+
+[node name="CorrectRadius" parent="Killer (2)"]
+offset = 4.45
+
+[node name="Killer (14)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21, 0.9185804, -0.3581089)
+
+[node name="CorrectRadius" parent="Killer (14)"]
+offset = 4.45
+
+[node name="Killer (13)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02, 0.9674215, 0.6706441)
+
+[node name="CorrectRadius" parent="Killer (13)"]
+offset = 4.45
+
+[node name="Killer (12)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.007276922, 1.36543)
+
+[node name="CorrectRadius" parent="Killer (12)"]
+offset = 4.45
+
+[node name="Killer (11)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.802505, -1.947027, 1.5729)
+
+[node name="CorrectRadius" parent="Killer (11)"]
+offset = 4.45
+
+[node name="Killer (10)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.648483, -2.319824, 0.9028678)
+
+[node name="CorrectRadius" parent="Killer (10)"]
+offset = 4.45
+
+[node name="Killer (9)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77533, -2.182827, -0.312064)
+
+[node name="CorrectRadius" parent="Killer (9)"]
+offset = 4.45
+
+[node name="DirtLaunchLeft" parent="." instance=ExtResource("6_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.936738, -0.7132845, 0.03)
+
+[node name="CorrectRadius" parent="DirtLaunchLeft"]
+offset = 2.94
+
+[node name="Killer (7)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.197623, 1.200917, 0.213629)
+
+[node name="CorrectRadius" parent="Killer (7)"]
+offset = 4.45
+
+[node name="Killer (6)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.71, -0.87, 1.8)
+
+[node name="CorrectRadius" parent="Killer (6)"]
+offset = 4.45
+
+[node name="Salt" parent="Killer (6)"]
+transform = Transform3D(0.1, 0, 0, 0, 0, 0.1, 0, -0.1, 0, 0, 0.26, -0.16)
+
+[node name="Killer (5)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.302505, -1.819824, 1.180741)
+
+[node name="CorrectRadius" parent="Killer (5)"]
+offset = 4.45
+
+[node name="Salt" parent="Killer (5)"]
+transform = Transform3D(0.1, 0, 0, 0, 0, 0.1, 0, -0.1, 0, 0, -0.53, 0)
+
+[node name="Killer (4)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.177022, 0.444, 1.152)
+
+[node name="CorrectRadius" parent="Killer (4)"]
+offset = 4.45
+
+[node name="Killer (3)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.146109, 0.426, -0.533)
+
+[node name="CorrectRadius" parent="Killer (3)"]
+offset = 4.45
+
+[node name="Killer (1)" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.703, -1.840275, -0.6993542)
+
+[node name="CorrectRadius" parent="Killer (1)"]
+offset = 4.45
+
+[node name="Killer" parent="." instance=ExtResource("3_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.372146, -2.27, 0.2850272)
+
+[node name="CorrectRadius" parent="Killer"]
+offset = 4.45
+
+[node name="Character" parent="." instance=ExtResource("8_chara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -5.322, 0)
+
+[node name="Move" parent="Character" node_paths=PackedStringArray("world")]
+world = NodePath("../../Level/World")
+
+[node name="Level" parent="." instance=ExtResource("9_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="Canvas" parent="." instance=ExtResource("10_canva")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2")
+
+[node name="PostProcessVignette" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Vignette" type="ColorRect" parent="PostProcessVignette"]
+material = SubResource("ShaderMaterial_3")
+anchors_preset = 15
+anchor_right = 1
+anchor_bottom = 1
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

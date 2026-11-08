@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/boing.wav" id="1_boing"]
+
+[ext_resource type="Script" path="res://scripts/launch.gd" id="2_launc"]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="3_corre"]
+
+[ext_resource type="PackedScene" path="res://assets/Rocket.fbx" id="4_rocke"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(1.5, 44.44996, 1.5)
+
+[node name="LaunchJumpMoon" type="Area3D"]
+collision_layer = 1
+collision_mask = 2
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.75, 0, 4.129, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.72499, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="boing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_boing")
+volume_db = -13.98
+
+[node name="Launch" type="Node" parent="." node_paths=PackedStringArray("boing")]
+script = ExtResource("2_launc")
+boing = NodePath("../boing")
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("3_corre")
+offset = -0.03
+
+[node name="Rocket" type="Node3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 200, 0, 0, 0, 25, -5.863905e-06, 4.31, -0.043)
+
+[node name="Model" parent="Rocket" instance=ExtResource("4_rocke")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)

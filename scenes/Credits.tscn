@@ -1,0 +1,167 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="2_level"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="3_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="4_canva"]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/Chewy-Regular.ttf" id="5_chewy"]
+
+[ext_resource type="Script" path="res://scripts/message.gd" id="6_messa"]
+
+[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="7_skybo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(1, 1, 1, 0.392)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="FontVariation" id="FontVariation_2"]
+base_font = ExtResource("5_chewy")
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_3"]
+base_font = ExtResource("5_chewy")
+variation_embolden = 0.6
+
+[sub_resource type="FontVariation" id="FontVariation_4"]
+base_font = ExtResource("5_chewy")
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[sub_resource type="Sky" id="Sky_5"]
+sky_material = ExtResource("7_skybo")
+
+[sub_resource type="Environment" id="Environment_6"]
+background_mode = 2
+sky = SubResource("Sky_5")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[node name="Credits" type="Node3D"]
+
+[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
+transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+
+[node name="Level" parent="." instance=ExtResource("2_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="World" parent="Level"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 3.396109, 1.32, -13.71218)
+
+[node name="Character" parent="." instance=ExtResource("3_chara")]
+transform = Transform3D(0.08175935, -0.4586036, -0.8848718, 4.094307e-08, 0.8878443, -0.4601441, 0.9966521, 0.03762104, 0.07258959, 0.44, 8.2, -13.59)
+
+[node name="Move" parent="Character"]
+enabled = false
+
+[node name="Main Camera" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Bottom" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Camera" type="Camera3D" parent="."]
+fov = 60
+near = 0.3
+far = 1000
+current = true
+transform = Transform3D(-0.9462875, 0.1580834, -0.2820452, -1.545357e-08, 0.8723238, 0.4889285, 0.3233263, 0.462667, -0.8254692, -3.21, 13.32, -31.71)
+
+[node name="Canvas" parent="." instance=ExtResource("4_canva")]
+
+[node name="Text" parent="Canvas/MainSection"]
+text = "Credits"
+offset_top = -750
+offset_bottom = -350
+
+[node name="Up Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Right Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Reset Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Scroll View" type="ScrollContainer" parent="Canvas/MainSection"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+horizontal_scroll_mode = 0
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360
+offset_top = -440
+offset_right = 360
+offset_bottom = 640
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Content" type="Control" parent="Canvas/MainSection/Scroll View"]
+mouse_filter = 2
+custom_minimum_size = Vector2(0, 5000)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Credits Text" type="RichTextLabel" parent="Canvas/MainSection/Scroll View/Content"]
+bbcode_enabled = true
+text = "Snail Mail was conceived, created, and programmed by Ben Massey\nbenjamin.w.massey@gmail.com\n\nMain Song\nhttps://freemusicarchive.org/music/Beat_Doctor/Best_Bytes_Volume_1/16--Beat_Doctor--Too_Retro\n\nPuff Sound\nhttps://freesound.org/people/Speedenza/sounds/167929/\n\nAww Sound\nhttps://freesound.org/people/phmiller42/sounds/124996/\n\nBoing Sound\nhttps://freesound.org/people/pan14/sounds/334032/\n\nCheer Sound\nhttps://freesound.org/people/jayfrosting/sounds/333404/\n\nDing Sound\nhttps://freesound.org/people/MashedTatoes2/sounds/515643/\n\nSnail 3D Model\nhttps://free3d.com/3d-model/snail-v2--997207.html\n\nHouse 3D Model\nhttps://www.cgtrader.com/free-3d-models/exterior/house/fantasy-house-36fc0216-613d-4104-abe1-952265cd6981\n\nEnvelope Image\nhttps://wikiclipart.com/envelope-clipart_23418/\n\nHat 3D Model\nhttps://www.cgtrader.com/free-3d-models/character/other/lego-cap\n\nSalt Shaker Image\nhttps://www.clipartmax.com/middle/m2i8i8H7m2Z5H7i8_salt-shaker-salt-clip-art/\n\nGround Texture\nhttps://cc0textures.com/view?id=Ground037\n\nStone 3D Model\nhttps://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan\n\nMailbox 3D Model\nhttps://www.cgtrader.com/free-3d-models/exterior/house/mailbox-9d230736-f26a-4d2c-998d-b773fb6ec15d\n\nMushroom 3D Model\nhttps://www.cgtrader.com/free-3d-models/plant/other/mushroom-bend\n\nRock Texture\nhttps://cc0textures.com/view?id=Rock033\n\nText Font\nhttps://fonts.google.com/specimen/Chewy\n\nRocket 3D Model\nhttps://www.cgtrader.com/free-3d-models/aircraft/jet/rocket-3d-render"
+scroll_active = false
+theme_override_fonts/normal_font = ExtResource("5_chewy")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_3")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_4")
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -350
+offset_top = 25
+offset_right = 350
+offset_bottom = 4775
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Scroll View/Content/Credits Text"]
+script = ExtResource("6_messa")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6")

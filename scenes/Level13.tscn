@@ -1,0 +1,223 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Collectable.tscn" id="2_colle"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchDown.tscn" id="3_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchJump.tscn" id="4_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/DirtLaunchLeft.tscn" id="5_dirtl"]
+
+[ext_resource type="PackedScene" path="res://prefabs/LaunchJump.tscn" id="6_launc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="7_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="8_level"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="9_canva"]
+
+[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="10_skybo"]
+
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="11_vigne"]
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = ExtResource("10_skybo")
+
+[sub_resource type="Environment" id="Environment_2"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.05
+glow_hdr_threshold = 1
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+shader = ExtResource("11_vigne")
+
+[node name="Level13" type="Node3D"]
+
+[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
+transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+
+[node name="Collectable (10)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.557, -0.848, 2.976)
+
+[node name="CorrectRadius" parent="Collectable (10)"]
+offset = 8
+
+[node name="Collectable (2)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.484, -0.894, 2.969)
+
+[node name="CorrectRadius" parent="Collectable (2)"]
+offset = 12
+
+[node name="Collectable" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.528, -0.892, 2.987)
+
+[node name="CorrectRadius" parent="Collectable"]
+offset = 16
+
+[node name="Collectable (9)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.244735, -2.89, -0.06101906)
+
+[node name="CorrectRadius" parent="Collectable (9)"]
+offset = 7
+
+[node name="Collectable (8)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.014109, 1.037, 1.793)
+
+[node name="CorrectRadius" parent="Collectable (8)"]
+offset = 18
+
+[node name="Collectable (7)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.796523, 0.945, 0.757827)
+
+[node name="CorrectRadius" parent="Collectable (7)"]
+offset = 14.5
+
+[node name="Collectable (6)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81375, 0.99, -0.7339921)
+
+[node name="CorrectRadius" parent="Collectable (6)"]
+offset = 13
+
+[node name="Collectable (5)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.737004, 0.2594749, -1.579068)
+
+[node name="CorrectRadius" parent="Collectable (5)"]
+offset = 11
+
+[node name="Collectable (4)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.861168, -0.8402847, -0.8142284)
+
+[node name="CorrectRadius" parent="Collectable (4)"]
+offset = 7.75
+
+[node name="Collectable (3)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78802, -1.606, 0.05161327)
+
+[node name="CorrectRadius" parent="Collectable (3)"]
+offset = 11
+
+[node name="Collectable (1)" parent="." instance=ExtResource("2_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.469, -0.87, 2.965)
+
+[node name="CorrectRadius" parent="Collectable (1)"]
+offset = 19.5
+
+[node name="DirtLaunchDown (1)" parent="." instance=ExtResource("3_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.006705, -0.057, 2.604)
+
+[node name="CorrectRadius" parent="DirtLaunchDown (1)"]
+offset = 20
+
+[node name="DirtLaunchJump (7)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.724078, -0.06727096, 2.167)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (7)"]
+offset = 17
+
+[node name="DirtLaunchJump (6)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.428078, -0.055, 2.064929)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (6)"]
+offset = 14
+
+[node name="DirtLaunchDown" parent="." instance=ExtResource("3_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.406808, 1.019, 2.085458)
+
+[node name="CorrectRadius" parent="DirtLaunchDown"]
+offset = 15
+
+[node name="DirtLaunchLeft (2)" parent="." instance=ExtResource("5_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.65, 1.158908, -1.4)
+
+[node name="CorrectRadius" parent="DirtLaunchLeft (2)"]
+offset = 25
+
+[node name="DirtLaunchJump (5)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43, 1.000341, -1.47)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (5)"]
+offset = 22
+
+[node name="DirtLaunchJump (4)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98, 0.99, -0.11)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (4)"]
+offset = 8.5
+
+[node name="DirtLaunchJump (3)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0.99, 1.27)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (3)"]
+offset = 12
+
+[node name="DirtLaunchJump (2)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45, 0.9645274, -1.5)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (2)"]
+offset = 7
+
+[node name="DirtLaunchJump (1)" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.812, -0.792, -1.711)
+
+[node name="CorrectRadius" parent="DirtLaunchJump (1)"]
+offset = 5
+
+[node name="DirtLaunchLeft" parent="." instance=ExtResource("5_dirtl")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, -4.912458, -0.91, -0.03)
+
+[node name="CorrectRadius" parent="DirtLaunchLeft"]
+offset = 8
+
+[node name="DirtLaunchJump" parent="." instance=ExtResource("4_dirtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77, -1.821573, -0.1)
+
+[node name="CorrectRadius" parent="DirtLaunchJump"]
+offset = 4
+
+[node name="LaunchJump" parent="." instance=ExtResource("6_launc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.75, -3.72904, -3.317022, -0.3027039)
+
+[node name="Character" parent="." instance=ExtResource("7_chara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -5.322, 0)
+
+[node name="Move" parent="Character" node_paths=PackedStringArray("world")]
+world = NodePath("../../Level/World")
+
+[node name="Level" parent="." instance=ExtResource("8_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="Canvas" parent="." instance=ExtResource("9_canva")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2")
+
+[node name="PostProcessVignette" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Vignette" type="ColorRect" parent="PostProcessVignette"]
+material = SubResource("ShaderMaterial_3")
+anchors_preset = 15
+anchor_right = 1
+anchor_bottom = 1
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

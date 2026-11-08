@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/two_colors.gdshader" id="1_twoco"]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Snail.png" id="2_snail"]
+
+[resource]
+resource_name = "SnailMat"
+render_priority = 0
+shader = ExtResource("1_twoco")
+shader_parameter/color_a = Color(0.7608, 0.8863, 0.4118, 0)
+shader_parameter/color_b = Color(0.6275, 0, 1, 0)
+shader_parameter/shape_info = ExtResource("2_snail")

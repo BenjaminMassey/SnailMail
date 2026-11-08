@@ -1,0 +1,71 @@
+[gd_scene format=3]
+
+[ext_resource type="SphereMesh" path="res://meshes/Sphere.tres" id="1_spher"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Grass.tres" id="2_grass"]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/cheer.wav" id="3_cheer"]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/aww.wav" id="4_awwwa"]
+
+[ext_resource type="Script" path="res://scripts/end.gd" id="5_endgd"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Fantasy_House_6.tscn" id="6_fanta"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Fantasy_House_6.tres" id="7_fanta"]
+
+[ext_resource type="PackedScene" path="res://assets/Mailbox.FBX" id="8_mailb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+radius = 1.5
+height = 7.258375
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="World" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_spher")
+surface_material_override/0 = ExtResource("2_grass")
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 3.396109, 4.153554, -13.71218)
+
+[node name="Top" type="Node3D" parent="World"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.5000001, 0)
+
+[node name="Middle" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 7.500004, 0, 0, 0, 3, 3.396109, 6.17, -13.71218)
+
+[node name="Trigger" type="Area3D" parent="Middle"]
+transform = Transform3D(0.3333333, 0, 0, 0, 0.1333333, 0, 0, 0, 0.3333333, 0, 0, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape3D" parent="Middle/Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.870802, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="cheer" type="AudioStreamPlayer" parent="Middle"]
+stream = ExtResource("3_cheer")
+volume_db = -13.98
+
+[node name="aww" type="AudioStreamPlayer" parent="Middle"]
+stream = ExtResource("4_awwwa")
+volume_db = -10.46
+
+[node name="End" type="Node" parent="Middle" node_paths=PackedStringArray("cheer", "aww")]
+script = ExtResource("5_endgd")
+cheer = NodePath("../cheer")
+aww = NodePath("../aww")
+
+[node name="Fantasy_House_6" parent="." instance=ExtResource("6_fanta")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 2.185569e-08, 0, -2.185569e-08, 0.5, 3.396109, 8.653555, -13.71218)
+
+[node name="Mesh" parent="Fantasy_House_6"]
+surface_material_override/0 = ExtResource("7_fanta")
+
+[node name="Mailbox" type="Node3D" parent="."]
+transform = Transform3D(0.0647048, 0, 0.2414814, 0, 0.25, 0, -0.2414814, 0, 0.0647048, 1.591, 8.649, -13.099)
+
+[node name="Model" parent="Mailbox" instance=ExtResource("8_mailb")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+
+[connection signal="area_entered" from="Middle/Trigger" to="Middle/End" method="_on_trigger_enter"]

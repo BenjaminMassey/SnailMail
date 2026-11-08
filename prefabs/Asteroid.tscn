@@ -1,0 +1,66 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="1_corre"]
+
+[ext_resource type="ArrayMesh" path="res://meshes/Stone.res" id="2_stone"]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/puff.wav" id="3_puffw"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="4_aster"]
+
+[ext_resource type="Script" path="res://scripts/kill.gd" id="5_killg"]
+
+[ext_resource type="CylinderMesh" path="res://meshes/Cylinder.tres" id="6_cylin"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/ClearRed.tres" id="7_clear"]
+
+[ext_resource type="Script" path="res://scripts/look_at_center.gd" id="8_looka"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1"]
+radius = 0.5876006
+
+[node name="Asteroid" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.75305, 4.5032, 3.017189)
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("1_corre")
+offset = 8
+
+[node name="Rock" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1.469001, 0, 1, 0, 0, 0, 0)
+
+[node name="Trigger" type="Area3D" parent="Rock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6807345, 0, 0, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape3D" parent="Rock/Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.4407004)
+shape = SubResource("SphereShape3D_1")
+
+[node name="Mesh" type="MeshInstance3D" parent="Rock"]
+mesh = ExtResource("2_stone")
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+
+[node name="puff" type="AudioStreamPlayer" parent="Rock"]
+stream = ExtResource("3_puffw")
+volume_db = -12.77
+
+[node name="Asteroid" type="Node" parent="Rock"]
+script = ExtResource("4_aster")
+wait_time = 0.5
+
+[node name="Kill" type="Node" parent="Rock" node_paths=PackedStringArray("puff")]
+script = ExtResource("5_killg")
+puff = NodePath("../puff")
+
+[node name="Warning" type="MeshInstance3D" parent="."]
+mesh = ExtResource("6_cylin")
+surface_material_override/0 = ExtResource("7_clear")
+transform = Transform3D(0, 0, -1.3, 0, 14.69001, 0, 1.3, 0, 0, -0.03, 0, -0.04)
+
+[node name="LookAtCenter" type="Node" parent="Warning"]
+script = ExtResource("8_looka")
+offset = Vector3(90, 0, 0)
+
+[connection signal="area_entered" from="Rock/Trigger" to="Rock/Kill" method="_on_trigger_enter"]

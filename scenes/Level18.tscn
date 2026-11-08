@@ -1,0 +1,297 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Collectable.tscn" id="1_colle"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Asteroid.tscn" id="2_aster"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="3_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="4_level"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Rock.tres" id="5_rockt"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="6_canva"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Killer.tscn" id="7_kille"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/sky/MilkyWay.tres" id="8_milky"]
+
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="9_vigne"]
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = ExtResource("8_milky")
+
+[sub_resource type="Environment" id="Environment_2"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.05
+glow_hdr_threshold = 1
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+shader = ExtResource("9_vigne")
+
+[node name="Level18" type="Node3D"]
+
+[node name="Collectable (2)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(0.9999842, -0.005473771, -0.001277957, 0.005562434, 0.9963818, 0.08480735, 0.0008091176, -0.08481312, 0.9963965, 0.6264882, -1.069541, 5.333234)
+
+[node name="Asteroid (2)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.9978148, 0.06607234, 3.669028e-05, 0.01227721, -0.184863, -0.9826876, -0.06492168, 0.9805407, -0.1852702, 1.05, -2, 9.7)
+
+[node name="Collectable (1)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.489, -1.331435, 4.544892)
+
+[node name="Asteroid (1)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.8728369, -0.4640721, 0.1509731, 0.05842892, -0.2077613, -0.9764329, 0.4845017, 0.8610879, -0.1542265, -5.84, -2.94, 10.97)
+
+[node name="Collectable" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, -1.06, 2.29)
+
+[node name="Asteroid" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.4500104, -0.881691, 0.1418156, 0.04834615, -0.1345177, -0.9897311, 0.8917137, 0.4522455, -0.01790799, -11.81966, -2.66, 5.91616)
+
+[node name="Character" parent="." instance=ExtResource("3_chara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -5.322, 0)
+
+[node name="Move" parent="Character" node_paths=PackedStringArray("world")]
+world = NodePath("../../Level/World")
+
+[node name="Level" parent="." instance=ExtResource("4_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="World" parent="Level"]
+surface_material_override/0 = ExtResource("5_rockt")
+
+[node name="Canvas" parent="." instance=ExtResource("6_canva")]
+
+[node name="Spot Light" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(1, 0, 0, 0, 0.9978808, 0.06506891, 0, -0.06506891, 0.9978808, 0, 0.58, 18.98)
+
+[node name="Spot Light (1)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.9999689, 0.007888722, 0, 0.007872252, 0.9978812, -0.06458444, -0.0005094887, -0.06458243, -0.9979122, 0, 0.58, -18.98)
+
+[node name="Spot Light (2)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(0.0001634061, 0.002507995, -0.9999968, 0.06501981, 0.9978808, 0.002513313, 0.997884, -0.06502002, -9.615288e-09, -18, 0.58, 0)
+
+[node name="Spot Light (3)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.0001634061, -0.002507995, 0.9999968, 0.06501981, 0.9978808, 0.002513313, -0.997884, 0.06502002, 9.615288e-09, 18, 0.58, 0)
+
+[node name="Killers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68121, 2.770548, 10.18969)
+
+[node name="Killer (7)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.317686, -5.403143, -4.972724)
+
+[node name="Killer (6)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.22784, -5.46974, -5.124128)
+
+[node name="Killer (5)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.02526, -5.513087, -5.410068)
+
+[node name="Killer (4)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.73909, -5.536213, -5.810806)
+
+[node name="Killer (3)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.42424, -5.559908, -6.378387)
+
+[node name="Killer (2)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.99578, -5.598411, -7.082685)
+
+[node name="Killer (1)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.42293, -5.639274, -7.890027)
+
+[node name="Killer" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.68628, -5.655472, -8.721155)
+
+[node name="Killer (10)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.387954, -2.312664, -5.031276)
+
+[node name="Killer (11)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.343495, -2.326692, -4.961757)
+
+[node name="Killer (12)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.317686, -2.349288, -4.972724)
+
+[node name="Killer (13)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.22784, -2.415885, -5.124128)
+
+[node name="Killer (14)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.02526, -2.459232, -5.410068)
+
+[node name="Killer (15)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.73909, -2.482357, -5.810806)
+
+[node name="Killer (16)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.42424, -2.506053, -6.378387)
+
+[node name="Killer (17)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.99578, -2.544555, -7.082685)
+
+[node name="Killer (18)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.42293, -2.585418, -7.890027)
+
+[node name="Killer (19)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.68628, -2.601617, -8.721155)
+
+[node name="Killer (33)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.983714, -2.202786, -12.60467)
+
+[node name="Killer (34)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64259, -2.216061, -11.65363)
+
+[node name="Killer (35)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.561566, -2.232481, -10.58067)
+
+[node name="Killer (36)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.584606, -2.272664, -9.515221)
+
+[node name="Killer (37)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.709438, -2.3, -8.705245)
+
+[node name="Killer (38)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.948972, -2.31808, -7.981175)
+
+[node name="Killer (39)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.299836, -2.332664, -6.969692)
+
+[node name="Killer (47)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.596693, 2.062612, -13.14741)
+
+[node name="Killer (46)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.847284, 1.29545, -13.94066)
+
+[node name="Killer (45)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.188588, 0.2973709, -14.49402)
+
+[node name="Killer (44)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.778938, -0.7241061, -14.80226)
+
+[node name="Killer (43)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.532062, -2.020548, -14.93974)
+
+[node name="Killer (42)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.435857, -3.528668, -14.88203)
+
+[node name="Killer (41)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.409517, -4.989869, -14.48562)
+
+[node name="Killer (40)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.324517, -5.026548, -13.6689)
+
+[node name="Killer (32)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.983714, -5.217273, -12.60467)
+
+[node name="Killer (31)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64259, -5.230548, -11.65363)
+
+[node name="Killer (30)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.561566, -5.246968, -10.58067)
+
+[node name="Killer (29)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.584606, -5.28715, -9.515221)
+
+[node name="Killer (28)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.709438, -5.314487, -8.705245)
+
+[node name="Killer (27)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.948972, -5.332567, -7.981175)
+
+[node name="Killer (26)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.299836, -5.207618, -7.194341)
+
+[node name="Killer (25)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.910856, -5.271857, -6.476901)
+
+[node name="Killer (24)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.802309, -2.268933, -5.984847)
+
+[node name="Killer (23)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.569809, -5.336813, -5.955679)
+
+[node name="Killer (22)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.550002, -5.400332, -5.46033)
+
+[node name="Killer (21)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.389951, -2.285747, -5.523425)
+
+[node name="Killer (20)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.276829, -2.32416, -5.047875)
+
+[node name="Killer (9)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.387954, -5.366519, -5.031276)
+
+[node name="Killer (8)" parent="Killers" instance=ExtResource("7_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.343495, -5.380547, -4.961757)
+
+[node name="Collectable (3)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(0.804715, -0.1580194, 0.5722444, 0.1601191, 0.9859734, 0.04709998, -0.5716604, 0.05372521, 0.8187295, 4.288742, -1.158204, 4.573724)
+
+[node name="Asteroid (3)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.7638652, 0.6453517, -0.005579264, 0.1688165, -0.2081473, -0.9634187, -0.6229052, 0.7349802, -0.2679425, 7.278, -2.171, 7.76)
+
+[node name="Collectable (4)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(0.19938, -0.1132177, 0.9733598, 0.2309071, 0.9707607, 0.06561711, -0.9523285, 0.211673, 0.2196931, 5.28, -1.1, 0.45)
+
+[node name="Asteroid (4)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.1343637, 0.9790741, -0.1528406, 0.2380618, -0.1816154, -0.9541186, -0.9619111, 0.09181339, -0.2574827, 9.66905, -1.984064, 0.7115665)
+
+[node name="Collectable (5)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(-0.4764438, 0.0542163, 0.8775317, 0.2945587, 0.950258, 0.101217, -0.828394, 0.3067088, -0.4687144, 4.093014, -0.6815038, -3.339729)
+
+[node name="Asteroid (5)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(-0.5317074, 0.7976409, -0.2847036, 0.2990118, -0.1377153, -0.9442597, -0.7923883, -0.5871996, -0.1652798, 7.57, -1.36, -6.09)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2")
+
+[node name="PostProcessVignette" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Vignette" type="ColorRect" parent="PostProcessVignette"]
+material = SubResource("ShaderMaterial_3")
+anchors_preset = 15
+anchor_right = 1
+anchor_bottom = 1
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/Images/envelope.png" id="1_envel"]
+
+[resource]
+resource_name = "envelope 1"
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_envel")

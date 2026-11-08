@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "ClearRed"
+transparency = 1
+specular_mode = 2
+albedo_color = Color(1, 0, 0, 0.3922)
+metallic = 0
+metallic_specular = 0
+roughness = 1

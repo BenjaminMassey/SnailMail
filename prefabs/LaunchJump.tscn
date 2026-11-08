@@ -1,0 +1,43 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/boing.wav" id="1_boing"]
+
+[ext_resource type="Script" path="res://scripts/launch.gd" id="2_launc"]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="3_corre"]
+
+[ext_resource type="ArrayMesh" path="res://assets/Mushroom.obj" id="4_mushr"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/MushroomMat.tres" id="5_mushr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(1.5, 44.44996, 1.5)
+
+[node name="LaunchJump" type="Area3D"]
+collision_layer = 1
+collision_mask = 2
+transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.75, 0, 4.129, 4.55)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.72499, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="boing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_boing")
+volume_db = -13.98
+
+[node name="Launch" type="Node" parent="." node_paths=PackedStringArray("boing")]
+script = ExtResource("2_launc")
+boing = NodePath("../boing")
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("3_corre")
+offset = -0.2
+
+[node name="Mushroom" type="Node3D" parent="."]
+transform = Transform3D(0.016, 0, 0, 0, 0.08000001, 0, 0, 0, 0.01066667, 0, 0, 0.3199997)
+
+[node name="Model" type="MeshInstance3D" parent="Mushroom"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+mesh = ExtResource("4_mushr")
+surface_material_override/0 = ExtResource("5_mushr")

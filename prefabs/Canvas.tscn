@@ -1,0 +1,367 @@
+[gd_scene format=3]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/Chewy-Regular.ttf" id="1_chewy"]
+
+[ext_resource type="Script" path="res://scripts/message.gd" id="2_messa"]
+
+[ext_resource type="Script" path="res://scripts/core/ui_button.gd" id="3_uibut"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/UpArrow.png" id="4_uparr"]
+
+[ext_resource type="Script" path="res://scripts/button_handler.gd" id="5_butto"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/RightArrow.png" id="6_right"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/Redo.png" id="7_redop"]
+
+[ext_resource type="Script" path="res://scripts/reset.gd" id="8_reset"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/Menu.png" id="9_menup"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="10_menug"]
+
+[ext_resource type="Script" path="res://scripts/next_level.gd" id="11_nextl"]
+
+[sub_resource type="FontVariation" id="FontVariation_1"]
+base_font = ExtResource("1_chewy")
+variation_embolden = 0.6
+
+[sub_resource type="FontVariation" id="FontVariation_2"]
+base_font = ExtResource("1_chewy")
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[node name="Canvas" type="CanvasLayer"]
+
+[node name="MainSection" type="Control" parent="."]
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50
+offset_top = -50
+offset_right = 50
+offset_bottom = 50
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Text" type="RichTextLabel" parent="MainSection"]
+bbcode_enabled = true
+text = ""
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
+theme_override_font_sizes/bold_font_size = 100
+theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -350
+offset_top = -461.1112
+offset_right = 350
+offset_bottom = -61.11115
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="MainSection/Text"]
+script = ExtResource("2_messa")
+
+[node name="Up Button" type="Button" parent="MainSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+texture = ExtResource("4_uparr")
+image_color = Color(1, 1, 1, 0.1254902)
+layout_mode = 1
+anchor_left = 0
+anchor_top = 1
+anchor_right = 0
+anchor_bottom = 1
+offset_left = -350
+offset_top = 261.1112
+offset_right = 50
+offset_bottom = 661.1111
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ButtonHandler" type="Node" parent="MainSection/Up Button"]
+script = ExtResource("5_butto")
+
+[node name="ButtonHandler2" type="Node" parent="MainSection/Up Button"]
+script = ExtResource("5_butto")
+
+[node name="Right Button" type="Button" parent="MainSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+texture = ExtResource("6_right")
+image_color = Color(1, 1, 1, 0.1254902)
+layout_mode = 1
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+offset_left = -50
+offset_top = 261.1112
+offset_right = 350
+offset_bottom = 661.1111
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ButtonHandler" type="Node" parent="MainSection/Right Button"]
+script = ExtResource("5_butto")
+
+[node name="Reset Button" type="Button" parent="MainSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+texture = ExtResource("7_redop")
+image_color = Color(1, 1, 1, 0.5019608)
+layout_mode = 1
+anchor_left = 1
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 0
+offset_left = 100
+offset_top = -661.1111
+offset_right = 350
+offset_bottom = -411.1111
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Reset" type="Node" parent="MainSection/Reset Button"]
+script = ExtResource("8_reset")
+
+[node name="Menu Button" type="Button" parent="MainSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+texture = ExtResource("9_menup")
+image_color = Color(1, 1, 1, 0.5019608)
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 0
+anchor_bottom = 0
+offset_left = -350
+offset_top = -661.1111
+offset_right = -100
+offset_bottom = -411.1111
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Menu" type="Node" parent="MainSection/Menu Button"]
+script = ExtResource("10_menug")
+
+[node name="ResultsSection" type="Control" parent="."]
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50
+offset_top = -50
+offset_right = 50
+offset_bottom = 50
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(0, 0)
+
+[node name="LevelComplete" type="ColorRect" parent="ResultsSection"]
+color = Color(0, 0.3215686, 0.5566038, 1)
+mouse_filter = 0
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100
+offset_top = -388.5
+offset_right = 100
+offset_bottom = -313.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(3, 3)
+
+[node name="Text" type="Label" parent="ResultsSection/LevelComplete"]
+text = "Level Complete!"
+theme_override_fonts/font = ExtResource("1_chewy")
+theme_override_font_sizes/font_size = 250
+theme_override_colors/font_color = Color(0.7830189, 0.7830189, 0.7830189, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000
+offset_top = -500
+offset_right = 1000
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
+
+[node name="Results Info" type="ColorRect" parent="ResultsSection"]
+color = Color(0, 0.3215686, 0.5529412, 1)
+mouse_filter = 0
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125
+offset_top = -123
+offset_right = 125
+offset_bottom = -23
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
+
+[node name="Text" type="Label" parent="ResultsSection/Results Info"]
+text = "It took you\nXXXX seconds\nto beat the level!"
+theme_override_fonts/font = ExtResource("1_chewy")
+theme_override_font_sizes/font_size = 250
+theme_override_colors/font_color = Color(0.7830189, 0.7830189, 0.7830189, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000
+offset_top = -500
+offset_right = 1000
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
+
+[node name="NextLevel Button" type="Button" parent="ResultsSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+rounded = true
+image_color = Color(0.7019608, 0.9294118, 0.9607844, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100
+offset_top = 135
+offset_right = 100
+offset_bottom = 185
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
+
+[node name="NextLevel" type="Node" parent="ResultsSection/NextLevel Button"]
+script = ExtResource("11_nextl")
+
+[node name="Text" type="Label" parent="ResultsSection/NextLevel Button"]
+text = "Next Level"
+theme_override_fonts/font = ExtResource("1_chewy")
+theme_override_font_sizes/font_size = 240
+theme_override_colors/font_color = Color(0.1960784, 0.1960784, 0.1960784, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000
+offset_top = -500
+offset_right = 1000
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
+
+[node name="LevelSelect Button" type="Button" parent="ResultsSection"]
+focus_mode = 0
+script = ExtResource("3_uibut")
+rounded = true
+image_color = Color(0.7019608, 0.9294118, 0.9607844, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.99998
+offset_top = 282
+offset_right = 100
+offset_bottom = 332
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
+
+[node name="Menu" type="Node" parent="ResultsSection/LevelSelect Button"]
+script = ExtResource("10_menug")
+
+[node name="Text" type="Label" parent="ResultsSection/LevelSelect Button"]
+text = "Level Select"
+theme_override_fonts/font = ExtResource("1_chewy")
+theme_override_font_sizes/font_size = 240
+theme_override_colors/font_color = Color(0.1960784, 0.1960784, 0.1960784, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000
+offset_top = -500
+offset_right = 1000
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(0.1, 0.1)
+
+[connection signal="button_down" from="MainSection/Up Button" to="MainSection/Up Button/ButtonHandler" method="on_press"]
+[connection signal="button_up" from="MainSection/Up Button" to="MainSection/Up Button/ButtonHandler" method="on_release"]
+[connection signal="button_down" from="MainSection/Right Button" to="MainSection/Right Button/ButtonHandler" method="on_press"]
+[connection signal="button_up" from="MainSection/Right Button" to="MainSection/Right Button/ButtonHandler" method="on_release"]
+[connection signal="pressed" from="MainSection/Reset Button" to="MainSection/Reset Button/Reset" method="button_reset"]
+[connection signal="pressed" from="MainSection/Menu Button" to="MainSection/Menu Button/Menu" method="level_select"]
+[connection signal="pressed" from="ResultsSection/NextLevel Button" to="ResultsSection/NextLevel Button/NextLevel" method="perform"]
+[connection signal="pressed" from="ResultsSection/LevelSelect Button" to="ResultsSection/LevelSelect Button/Menu" method="level_select"]

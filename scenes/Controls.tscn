@@ -1,0 +1,275 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="2_level"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="3_canva"]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/Chewy-Regular.ttf" id="4_chewy"]
+
+[ext_resource type="Script" path="res://scripts/message.gd" id="5_messa"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="6_chara"]
+
+[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="7_skybo"]
+
+[sub_resource type="FontVariation" id="FontVariation_1"]
+base_font = ExtResource("4_chewy")
+variation_embolden = 0.6
+
+[sub_resource type="FontVariation" id="FontVariation_2"]
+base_font = ExtResource("4_chewy")
+variation_embolden = 0.6
+variation_transform = Transform2D(1, 0, 0.2, 1, 0, 0)
+
+[sub_resource type="Sky" id="Sky_3"]
+sky_material = ExtResource("7_skybo")
+
+[sub_resource type="Environment" id="Environment_4"]
+background_mode = 2
+sky = SubResource("Sky_3")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[node name="Controls" type="Node3D"]
+
+[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
+transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+
+[node name="Level" parent="." instance=ExtResource("2_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="Canvas" parent="." instance=ExtResource("3_canva")]
+
+[node name="Text" parent="Canvas/MainSection"]
+text = "Controls"
+theme_override_font_sizes/normal_font_size = 150
+theme_override_font_sizes/italics_font_size = 150
+theme_override_font_sizes/bold_font_size = 150
+theme_override_font_sizes/bold_italics_font_size = 150
+offset_top = -250
+offset_bottom = 150
+
+[node name="ButtonHandler" parent="Canvas/MainSection/Up Button"]
+enabled = false
+
+[node name="ButtonHandler2" parent="Canvas/MainSection/Up Button"]
+enabled = false
+
+[node name="ButtonHandler" parent="Canvas/MainSection/Right Button"]
+enabled = false
+
+[node name="Text (1)" type="RichTextLabel" parent="Canvas/MainSection"]
+bbcode_enabled = true
+text = "Reset\nthe level"
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -90
+offset_top = -560
+offset_right = 610
+offset_bottom = -160
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Text (1)"]
+script = ExtResource("5_messa")
+
+[node name="Text (2)" type="RichTextLabel" parent="Canvas/MainSection"]
+bbcode_enabled = true
+text = "Move Forward"
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -540
+offset_top = 200
+offset_right = 160
+offset_bottom = 600
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Text (2)"]
+script = ExtResource("5_messa")
+
+[node name="Text (3)" type="RichTextLabel" parent="Canvas/MainSection"]
+bbcode_enabled = true
+text = "Move Right"
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -125
+offset_top = 200
+offset_right = 575
+offset_bottom = 600
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Text (3)"]
+script = ExtResource("5_messa")
+
+[node name="Text (4)" type="RichTextLabel" parent="Canvas/MainSection"]
+bbcode_enabled = true
+text = "Back\nto Menu"
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -610
+offset_top = -559.9999
+offset_right = 90
+offset_bottom = -159.9999
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Text (4)"]
+script = ExtResource("5_messa")
+
+[node name="Text (5)" type="RichTextLabel" parent="Canvas/MainSection"]
+bbcode_enabled = true
+text = "Use the menu button to return"
+scroll_active = false
+theme_override_fonts/normal_font = SubResource("FontVariation_1")
+theme_override_fonts/italics_font = SubResource("FontVariation_2")
+theme_override_fonts/bold_font = SubResource("FontVariation_1")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0
+anchor_right = 0.5
+anchor_bottom = 0
+offset_left = -350
+offset_top = -65
+offset_right = 350
+offset_bottom = 335
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Message" type="Node" parent="Canvas/MainSection/Text (5)"]
+script = ExtResource("5_messa")
+
+[node name="Character" parent="." instance=ExtResource("6_chara")]
+transform = Transform3D(0.08175935, -0.4586036, -0.8848718, 4.094307e-08, 0.8878443, -0.4601441, 0.9966521, 0.03762104, 0.07258959, -2.73, 4.02, 0.25)
+
+[node name="Move" parent="Character"]
+enabled = false
+
+[node name="Main Camera" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Bottom" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Camera" type="Camera3D" parent="."]
+fov = 60
+near = 0.3
+far = 1000
+current = true
+transform = Transform3D(-0.9462875, 0.1580834, -0.2820452, -1.545357e-08, 0.8723238, 0.4889285, 0.3233263, 0.462667, -0.8254692, -3.9, 9.11, -11.85)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4")

@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/ding.wav" id="1_dingw"]
+
+[ext_resource type="Script" path="res://scripts/collect.gd" id="2_colle"]
+
+[ext_resource type="Script" path="res://scripts/move.gd" id="3_moveg"]
+
+[ext_resource type="ArrayMesh" path="res://assets/Snail.obj" id="4_snail"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/SnailMat.tres" id="5_snail"]
+
+[ext_resource type="ArrayMesh" path="res://assets/lego cap.obj" id="6_legoc"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Blue.tres" id="7_bluet"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Red.tres" id="8_redtr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.2, 1, 1)
+
+[node name="Character" type="Area3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -4.94, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="ding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_dingw")
+volume_db = -9.119
+
+[node name="Collect" type="Node" parent="." node_paths=PackedStringArray("ding_sound")]
+script = ExtResource("2_colle")
+ding_sound = NodePath("../ding")
+
+[node name="Move" type="Node" parent="." node_paths=PackedStringArray("world", "my_bottom", "snail_obj")]
+script = ExtResource("3_moveg")
+move_speed = 5
+grav_speed = 5
+world = NodePath("")
+my_bottom = NodePath("../Bottom")
+snail_obj = NodePath("../Snail")
+
+[node name="Main Camera" type="Camera3D" parent="." groups=["MainCamera"]]
+fov = 60
+near = 0.3
+far = 1000
+current = true
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 10, 0)
+
+[node name="Bottom" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.5, 0)
+
+[node name="Snail" type="Node3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0, -0.15, 0, 0.15, 0, 0, 0.006, 0)
+
+[node name="Model" type="MeshInstance3D" parent="Snail"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+mesh = ExtResource("4_snail")
+surface_material_override/0 = ExtResource("5_snail")
+
+[node name="lego cap" type="Node3D" parent="Snail"]
+transform = Transform3D(0.01, 0, 0, 0, 0, 0.01, 0, -0.01, 0, 0, -3.73, -3.75)
+
+[node name="Model" type="MeshInstance3D" parent="Snail/lego cap"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+mesh = ExtResource("6_legoc")
+surface_material_override/0 = ExtResource("7_bluet")
+surface_material_override/1 = ExtResource("8_redtr")
+
+[connection signal="area_entered" from="." to="Collect" method="_on_trigger_enter"]

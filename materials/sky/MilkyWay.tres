@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/panoramic_sky.gdshader" id="1_panor"]
+
+[ext_resource type="Texture2D" path="res://assets/MilkyWay/Texture/MilkyWayPanorama8K.jpg" id="2_milky"]
+
+[resource]
+resource_name = "MilkyWay"
+shader = ExtResource("1_panor")
+shader_parameter/tex = ExtResource("2_milky")
+shader_parameter/tint = Color(0.8015, 0.8015, 0.8015, 0.5)
+shader_parameter/exposure = 0.54
+shader_parameter/rotation_degrees = 0

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/Fantasy House/Mesh/Fantasy_House_6.png" id="1_fanta"]
+
+[resource]
+resource_name = "Fantasy_House_6"
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_fanta")
+metallic = 0
+metallic_specular = 0.5
+roughness = 0.5

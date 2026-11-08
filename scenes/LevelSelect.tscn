@@ -1,0 +1,791 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="2_level"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="3_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="4_canva"]
+
+[ext_resource type="Script" path="res://scripts/unlocker.gd" id="5_unloc"]
+
+[ext_resource type="Script" path="res://scripts/page_handler.gd" id="6_pageh"]
+
+[ext_resource type="Script" path="res://scripts/core/ui_button.gd" id="7_uibut"]
+
+[ext_resource type="Script" path="res://scripts/level_select_button.gd" id="8_level"]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/Chewy-Regular.ttf" id="9_chewy"]
+
+[ext_resource type="Script" path="res://scripts/reset.gd" id="10_reset"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="11_credi"]
+
+[ext_resource type="Script" path="res://scripts/controls.gd" id="12_contr"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/UpArrowUI.png" id="13_uparr"]
+
+[ext_resource type="Texture2D" path="res://assets/Images/DownArrowUI.png" id="14_downa"]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/Beat_Doctor-Too_Retro.mp3" id="15_beatd"]
+
+[ext_resource type="Script" path="res://scripts/music.gd" id="16_music"]
+
+[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="17_skybo"]
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = ExtResource("17_skybo")
+
+[sub_resource type="Environment" id="Environment_2"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[node name="LevelSelect" type="Node3D"]
+
+[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
+transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+
+[node name="Level" parent="." instance=ExtResource("2_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="World" parent="Level"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 3.396109, 1.32, -13.71218)
+
+[node name="Character" parent="." instance=ExtResource("3_chara")]
+transform = Transform3D(0.08175935, -0.4586036, -0.8848718, 4.094307e-08, 0.8878443, -0.4601441, 0.9966521, 0.03762104, 0.07258959, 0.44, 8.2, -13.59)
+
+[node name="Move" parent="Character"]
+enabled = false
+
+[node name="Main Camera" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Bottom" parent="Character"]
+visible = false
+process_mode = 4
+
+[node name="Canvas" parent="." instance=ExtResource("4_canva")]
+
+[node name="Unlocker" type="Node" parent="Canvas"]
+script = ExtResource("5_unloc")
+
+[node name="PageHandler" type="Node" parent="Canvas"]
+script = ExtResource("6_pageh")
+page = 0
+
+[node name="Text" parent="Canvas/MainSection"]
+text = "Level Select"
+offset_top = -650
+offset_bottom = -250
+
+[node name="Up Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Right Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Reset Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="Menu Button" parent="Canvas/MainSection"]
+visible = false
+process_mode = 4
+
+[node name="LevelComplete" parent="Canvas/ResultsSection"]
+self_modulate = Color(1, 1, 1, 0)
+
+[node name="Text" parent="Canvas/ResultsSection/LevelComplete"]
+visible = false
+
+[node name="Results Info" parent="Canvas/ResultsSection"]
+self_modulate = Color(1, 1, 1, 0)
+
+[node name="Text" parent="Canvas/ResultsSection/Results Info"]
+visible = false
+
+[node name="NextLevel Button" parent="Canvas/ResultsSection"]
+image_enabled = false
+
+[node name="Text" parent="Canvas/ResultsSection/NextLevel Button"]
+visible = false
+
+[node name="LevelSelect Button" parent="Canvas/ResultsSection"]
+image_enabled = false
+
+[node name="Text" parent="Canvas/ResultsSection/LevelSelect Button"]
+visible = false
+
+[node name="Level1 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = -250
+offset_right = -25
+offset_bottom = -150
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level1 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level1 Button"]
+text = "Level 1"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level2 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25
+offset_top = -250
+offset_right = 325
+offset_bottom = -150
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level2 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level2 Button"]
+text = "Level 2"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level3 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = -125
+offset_right = -25
+offset_bottom = -25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level3 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level3 Button"]
+text = "Level 3"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level4 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.99998
+offset_top = -125
+offset_right = 325
+offset_bottom = -25
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level4 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level4 Button"]
+text = "Level 4"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level5 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = 0
+offset_right = -25
+offset_bottom = 100
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level5 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level5 Button"]
+text = "Level 5"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level6 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.99998
+offset_top = 0
+offset_right = 325
+offset_bottom = 100
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level6 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level6 Button"]
+text = "Level 6"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level7 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = 125
+offset_right = -25
+offset_bottom = 225
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level7 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level7 Button"]
+text = "Level 7"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level8 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25
+offset_top = 125
+offset_right = 325
+offset_bottom = 225
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level8 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level8 Button"]
+text = "Level 8"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level9 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = 250
+offset_right = -25
+offset_bottom = 350
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level9 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level9 Button"]
+text = "Level 9"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Level10 Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.99998
+offset_top = 250
+offset_right = 325
+offset_bottom = 350
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level10 Button"]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level10 Button"]
+text = "Level 10"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ResetData Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(1, 0.4078544, 0.3820755, 1)
+highlighted_color = Color(1, 0.4078432, 0.3803922, 1)
+pressed_color = Color(0.5566038, 0, 0.01686809, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25
+offset_top = 500
+offset_right = 325
+offset_bottom = 600
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Reset" type="Node" parent="Canvas/ResetData Button"]
+script = ExtResource("10_reset")
+
+[node name="Text" type="Label" parent="Canvas/ResetData Button"]
+text = "Reset Progress"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Credits Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.6462264, 1, 0.7938184, 1)
+highlighted_color = Color(0.6470588, 1, 0.7921569, 1)
+pressed_color = Color(0, 0.3679245, 0.03579697, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325
+offset_top = 500
+offset_right = -25
+offset_bottom = 600
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Credits" type="Node" parent="Canvas/Credits Button"]
+script = ExtResource("11_credi")
+
+[node name="Text" type="Label" parent="Canvas/Credits Button"]
+text = "Credits"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Controls Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(1, 0.8373877, 0.6470588, 1)
+highlighted_color = Color(1, 0.8392158, 0.6470588, 1)
+pressed_color = Color(1, 0.6798218, 0.2971698, 1)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150
+offset_top = 605
+offset_right = 150
+offset_bottom = 705
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Controls" type="Node" parent="Canvas/Controls Button"]
+script = ExtResource("12_contr")
+
+[node name="Text" type="Label" parent="Canvas/Controls Button"]
+text = "Controls"
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+mouse_filter = 2
+layout_mode = 1
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Up Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+texture = ExtResource("13_uparr")
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25
+offset_top = -330
+offset_right = 25
+offset_bottom = -280
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(3, 3)
+
+[node name="Down Button" type="Button" parent="Canvas"]
+focus_mode = 0
+script = ExtResource("7_uibut")
+texture = ExtResource("14_downa")
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.99998
+offset_top = 380
+offset_right = 25.00002
+offset_bottom = 430
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+scale = Vector2(3, 3)
+
+[node name="Music" type="Node3D" parent="." groups=["Music"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.77345, -2.707964, 6.0496)
+
+[node name="Beat_Doctor-Too_Retro" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("15_beatd")
+volume_db = -20
+autoplay = true
+
+[node name="Music" type="Node" parent="Music"]
+script = ExtResource("16_music")
+
+[node name="Camera" type="Camera3D" parent="."]
+fov = 60
+near = 0.3
+far = 1000
+current = true
+transform = Transform3D(-0.9462875, 0.1580834, -0.2820452, -1.545357e-08, 0.8723238, 0.4889285, 0.3233263, 0.462667, -0.8254692, -3.21, 13.32, -31.71)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2")
+
+[connection signal="pressed" from="Canvas/Level1 Button" to="Canvas/Level1 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level2 Button" to="Canvas/Level2 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level3 Button" to="Canvas/Level3 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level4 Button" to="Canvas/Level4 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level5 Button" to="Canvas/Level5 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level6 Button" to="Canvas/Level6 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level7 Button" to="Canvas/Level7 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level8 Button" to="Canvas/Level8 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level9 Button" to="Canvas/Level9 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/Level10 Button" to="Canvas/Level10 Button/LevelSelectButton" method="on_press"]
+[connection signal="pressed" from="Canvas/ResetData Button" to="Canvas/ResetData Button/Reset" method="button_reset_data"]
+[connection signal="pressed" from="Canvas/Credits Button" to="Canvas/Credits Button/Credits" method="go_to_credits"]
+[connection signal="pressed" from="Canvas/Controls Button" to="Canvas/Controls Button/Controls" method="go_to_controls"]
+[connection signal="pressed" from="Canvas/Up Button" to="Canvas/PageHandler" method="page_up"]
+[connection signal="pressed" from="Canvas/Down Button" to="Canvas/PageHandler" method="page_down"]
