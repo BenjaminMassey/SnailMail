@@ -3,3 +3,4 @@
 /android/
 __pycache__/
 .editorconfig
+/build/
