@@ -163,3 +163,12 @@ anchor_bottom = 1
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[editable path="Collectable"]
+[editable path="LaunchJumpMoon"]
+[editable path="Character"]
+[editable path="Level"]
+[editable path="LaunchJumpMoon (1)"]
+[editable path="Collectable (1)"]
+[editable path="LaunchJumpMoon (2)"]
+[editable path="Collectable (2)"]

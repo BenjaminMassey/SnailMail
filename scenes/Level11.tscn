@@ -143,3 +143,15 @@ anchor_bottom = 1
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[editable path="Collectable (1)"]
+[editable path="Collectable"]
+[editable path="Killer (5)"]
+[editable path="Killer (2)"]
+[editable path="Killer (1)"]
+[editable path="Killer"]
+[editable path="Killer (4)"]
+[editable path="DirtLaunchDown"]
+[editable path="Killer (3)"]
+[editable path="DirtLaunchJump"]
+[editable path="Character"]

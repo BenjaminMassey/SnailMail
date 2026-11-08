@@ -130,6 +130,9 @@ class Writer:
         self.sub_by_canon = {}
         self.body = []
         self.conns = []
+        # Instances whose children this file overrides. Godot only keeps such
+        # overrides on save when the instance has "Editable Children" on.
+        self.editables = []
 
     def ext_id(self, e):
         if e.path not in self.ext_by_path:
@@ -166,6 +169,10 @@ class Writer:
         lines = self.props(props)
         self.body.append('[node %s]\n%s' % (' '.join(attrs), ''.join(l + '\n' for l in lines)))
 
+    def editable(self, path):
+        if path not in self.editables:
+            self.editables.append(path)
+
     def connection(self, signal, frm, to, method):
         self.conns.append('[connection signal="%s" from="%s" to="%s" method="%s"]\n' % (signal, frm, to, method))
 
@@ -180,7 +187,8 @@ class Writer:
     def scene_text(self):
         head = '[gd_scene format=3]\n'
         conns = [''.join(self.conns)] if self.conns else []
-        return '\n'.join([head] + self._header_resources() + self.body + conns)
+        edits = [''.join('[editable path="%s"]\n' % p for p in self.editables)] if self.editables else []
+        return '\n'.join([head] + self._header_resources() + self.body + conns + edits)
 
     def resource_text(self, type, props, script_class=None):
         lines = self.props(props)  # registers resources

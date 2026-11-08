@@ -1,38 +1,659 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b6lfjenrmifse"]
 
-[ext_resource type="PackedScene" path="res://prefabs/Directional Light.tscn" id="1_direc"]
-
+[ext_resource type="PackedScene" uid="uid://o1ivdd6xb5tv" path="res://prefabs/Directional Light.tscn" id="1_direc"]
 [ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="2_level"]
-
 [ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="3_chara"]
-
 [ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="4_canva"]
+[ext_resource type="Texture2D" uid="uid://c7joj0bhd71hw" path="res://assets/Images/UpArrow.png" id="5_0tbk4"]
+[ext_resource type="Script" uid="uid://dqxx0la7reoys" path="res://scripts/unlocker.gd" id="5_unloc"]
+[ext_resource type="Texture2D" uid="uid://cc1tcyhj0smbr" path="res://assets/Images/RightArrow.png" id="6_jlsph"]
+[ext_resource type="Script" uid="uid://qqomvbfj28s1" path="res://scripts/page_handler.gd" id="6_pageh"]
+[ext_resource type="Texture2D" uid="uid://chyoht7b0f34a" path="res://assets/Images/Redo.png" id="7_h60ok"]
+[ext_resource type="Script" uid="uid://6awu1l0t18af" path="res://scripts/core/ui_button.gd" id="7_uibut"]
+[ext_resource type="Texture2D" uid="uid://dv0iogns4s23o" path="res://assets/Images/Menu.png" id="8_7t6fj"]
+[ext_resource type="Script" uid="uid://cbegcn5b7ew71" path="res://scripts/level_select_button.gd" id="8_level"]
+[ext_resource type="FontFile" uid="uid://dileeuryfs051" path="res://assets/Fonts/Chewy-Regular.ttf" id="9_chewy"]
+[ext_resource type="Script" uid="uid://d0nuu32b60kwq" path="res://scripts/reset.gd" id="10_reset"]
+[ext_resource type="Script" uid="uid://bjafexjxu4ann" path="res://scripts/credits.gd" id="11_credi"]
+[ext_resource type="Script" uid="uid://b3q5pkl1ikxc1" path="res://scripts/controls.gd" id="12_contr"]
+[ext_resource type="Texture2D" uid="uid://dfsem1w08iob" path="res://assets/Images/UpArrowUI.png" id="13_uparr"]
+[ext_resource type="Texture2D" uid="uid://bwlvy0nkr8kuy" path="res://assets/Images/DownArrowUI.png" id="14_downa"]
+[ext_resource type="AudioStream" uid="uid://c8vloh4n4hvs5" path="res://assets/Sounds/Beat_Doctor-Too_Retro.mp3" id="15_beatd"]
+[ext_resource type="Script" uid="uid://cnh1lhimq476n" path="res://scripts/music.gd" id="16_music"]
+[ext_resource type="Material" path="res://materials/sky/Skybox_Mat.tres" id="17_skybo"]
 
-[ext_resource type="Script" path="res://scripts/unlocker.gd" id="5_unloc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mnm75"]
+texture = ExtResource("5_0tbk4")
+modulate_color = Color(1, 1, 1, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/page_handler.gd" id="6_pageh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv7ro"]
+texture = ExtResource("5_0tbk4")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/core/ui_button.gd" id="7_uibut"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1qta"]
+texture = ExtResource("5_0tbk4")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/level_select_button.gd" id="8_level"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsepd"]
+texture = ExtResource("5_0tbk4")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.1254902)
 
-[ext_resource type="FontFile" path="res://assets/Fonts/Chewy-Regular.ttf" id="9_chewy"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m08qt"]
+texture = ExtResource("5_0tbk4")
+modulate_color = Color(1, 1, 1, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/reset.gd" id="10_reset"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2tif"]
 
-[ext_resource type="Script" path="res://scripts/credits.gd" id="11_credi"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iywrv"]
+texture = ExtResource("6_jlsph")
+modulate_color = Color(1, 1, 1, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/controls.gd" id="12_contr"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pc2ii"]
+texture = ExtResource("6_jlsph")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.1254902)
 
-[ext_resource type="Texture2D" path="res://assets/Images/UpArrowUI.png" id="13_uparr"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcgpj"]
+texture = ExtResource("6_jlsph")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 0.1254902)
 
-[ext_resource type="Texture2D" path="res://assets/Images/DownArrowUI.png" id="14_downa"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qeqns"]
+texture = ExtResource("6_jlsph")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.1254902)
 
-[ext_resource type="AudioStream" path="res://assets/Sounds/Beat_Doctor-Too_Retro.mp3" id="15_beatd"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_td1g4"]
+texture = ExtResource("6_jlsph")
+modulate_color = Color(1, 1, 1, 0.1254902)
 
-[ext_resource type="Script" path="res://scripts/music.gd" id="16_music"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_da6tu"]
 
-[ext_resource type="ProceduralSkyMaterial" path="res://materials/sky/Skybox_Mat.tres" id="17_skybo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0luu"]
+texture = ExtResource("7_h60ok")
+modulate_color = Color(1, 1, 1, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yua8q"]
+texture = ExtResource("7_h60ok")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bthp"]
+texture = ExtResource("7_h60ok")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hqof3"]
+texture = ExtResource("7_h60ok")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_84wty"]
+texture = ExtResource("7_h60ok")
+modulate_color = Color(1, 1, 1, 0.5019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc6bx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypgqp"]
+texture = ExtResource("8_7t6fj")
+modulate_color = Color(1, 1, 1, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ae2l"]
+texture = ExtResource("8_7t6fj")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uraum"]
+texture = ExtResource("8_7t6fj")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrw3j"]
+texture = ExtResource("8_7t6fj")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 0.5019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lkrmf"]
+texture = ExtResource("8_7t6fj")
+modulate_color = Color(1, 1, 1, 0.5019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brjum"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlsph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h60ok"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t6fj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnm75"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gv7ro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1qta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsepd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m08qt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iywrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pc2ii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcgpj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeqns"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td1g4"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da6tu"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0luu"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yua8q"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bthp"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqof3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84wty"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc6bx"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypgqp"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ae2l"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uraum"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrw3j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkrmf"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brjum"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjsnw"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfcix"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q8j1"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efp73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1tr3"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykwlj"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbryb"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr2qr"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcgta"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5e6sc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj4f4"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apxe6"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2thtd"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urand"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjbyo"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4f4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h3xo"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga4vs"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4iyo"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_500t4"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh5sd"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrpuj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61ix7"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37j4f"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxwst"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdxdl"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d04s1"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_agurl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p3sa"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5n6b"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3agy"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8r8i"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmvst"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pitpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbnml"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eois"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6kso"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek1e2"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22ul2"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufkhx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsyxy"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgn72"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t185y"]
+bg_color = Color(0.7294118, 0.9686275, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7jc4"]
+bg_color = Color(0.6289562, 1, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5kev"]
+bg_color = Color(0.7311321, 0.9679064, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8s00q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqrax"]
+bg_color = Color(1, 0.4078544, 0.3820755, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a070"]
+bg_color = Color(0.5566038, 0, 0.01686809, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fssw"]
+bg_color = Color(1, 0.4078432, 0.3803922, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2is4p"]
+bg_color = Color(0.5566038, 0, 0.01686809, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybol1"]
+bg_color = Color(1, 0.4078544, 0.3820755, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81gh6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq17q"]
+bg_color = Color(0.6462264, 1, 0.7938184, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dm3im"]
+bg_color = Color(0, 0.3679245, 0.03579697, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2p7ea"]
+bg_color = Color(0.6470588, 1, 0.7921569, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypat6"]
+bg_color = Color(0, 0.3679245, 0.03579697, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cs8t"]
+bg_color = Color(0.6462264, 1, 0.7938184, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gin62"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wjo6"]
+bg_color = Color(1, 0.8373877, 0.6470588, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3jir"]
+bg_color = Color(1, 0.6798218, 0.2971698, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_438sb"]
+bg_color = Color(1, 0.8392158, 0.6470588, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2x4s"]
+bg_color = Color(1, 0.6798218, 0.2971698, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppyjt"]
+bg_color = Color(1, 0.8373877, 0.6470588, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_430ml"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rf33"]
+texture = ExtResource("13_uparr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8204"]
+texture = ExtResource("13_uparr")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xojti"]
+texture = ExtResource("13_uparr")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dihqv"]
+texture = ExtResource("13_uparr")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bo72c"]
+texture = ExtResource("13_uparr")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8njpn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4kxl"]
+texture = ExtResource("14_downa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s3ne6"]
+texture = ExtResource("14_downa")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knyc1"]
+texture = ExtResource("14_downa")
+modulate_color = Color(0.9607843, 0.9607843, 0.9607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwnpo"]
+texture = ExtResource("14_downa")
+modulate_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm4xk"]
+texture = ExtResource("14_downa")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_giag3"]
 
 [sub_resource type="Sky" id="Sky_1"]
 sky_material = ExtResource("17_skybo")
@@ -41,737 +662,854 @@ sky_material = ExtResource("17_skybo")
 background_mode = 2
 sky = SubResource("Sky_1")
 ambient_light_source = 3
-ambient_light_energy = 1
 reflected_light_source = 2
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
-fog_density = 1
-fog_depth_begin = 0
-fog_depth_end = 29
+fog_density = 1.0
+fog_sky_affect = 0.0
 fog_depth_curve = 1.35
-fog_sky_affect = 0
-fog_sun_scatter = 0
+fog_depth_begin = 0.0
+fog_depth_end = 29.0
 
-[node name="LevelSelect" type="Node3D"]
+[node name="LevelSelect" type="Node3D" unique_id=807412168]
 
-[node name="Directional Light" parent="." instance=ExtResource("1_direc")]
-transform = Transform3D(0.5416752, 0.6427876, -0.5416752, 0.7071068, -4.130935e-08, 0.7071068, 0.4545195, -0.7660444, -0.4545195, 0.24, 3, -4.18)
+[node name="Directional Light" parent="." unique_id=1354725317 instance=ExtResource("1_direc")]
 
-[node name="Level" parent="." instance=ExtResource("2_level")]
+[node name="Level" parent="." unique_id=602191586 instance=ExtResource("2_level")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="World" parent="Level"]
+[node name="World" parent="Level" index="0"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 3.396109, 1.32, -13.71218)
 
-[node name="Character" parent="." instance=ExtResource("3_chara")]
+[node name="Character" parent="." unique_id=1814736200 instance=ExtResource("3_chara")]
 transform = Transform3D(0.08175935, -0.4586036, -0.8848718, 4.094307e-08, 0.8878443, -0.4601441, 0.9966521, 0.03762104, 0.07258959, 0.44, 8.2, -13.59)
 
-[node name="Move" parent="Character"]
+[node name="Move" parent="Character" index="3"]
+move_speed = 5.0
 enabled = false
 
-[node name="Main Camera" parent="Character"]
-visible = false
+[node name="Main Camera" parent="Character" index="4"]
 process_mode = 4
-
-[node name="Bottom" parent="Character"]
 visible = false
+fov = 60.0
+far = 1000.0
+
+[node name="Bottom" parent="Character" index="5"]
 process_mode = 4
+visible = false
 
-[node name="Canvas" parent="." instance=ExtResource("4_canva")]
+[node name="Canvas" parent="." unique_id=624601336 instance=ExtResource("4_canva")]
 
-[node name="Unlocker" type="Node" parent="Canvas"]
+[node name="MainSection" parent="Canvas" index="0"]
+layout_mode = 3
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Text" parent="Canvas/MainSection" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -350.0
+offset_top = -650.0
+offset_right = 350.0
+offset_bottom = -250.0
+text = "Level Select"
+
+[node name="Up Button" parent="Canvas/MainSection" index="1"]
+process_mode = 4
+visible = false
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_right = 50.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mnm75")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv7ro")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e1qta")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_jsepd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m08qt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2tif")
+
+[node name="Right Button" parent="Canvas/MainSection" index="2"]
+process_mode = 4
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 350.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_iywrv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pc2ii")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fcgpj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_qeqns")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_td1g4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_da6tu")
+
+[node name="Reset Button" parent="Canvas/MainSection" index="3"]
+process_mode = 4
+visible = false
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 100.0
+offset_right = 350.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_j0luu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yua8q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3bthp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hqof3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_84wty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vc6bx")
+
+[node name="Menu Button" parent="Canvas/MainSection" index="4"]
+process_mode = 4
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -350.0
+offset_right = -100.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ypgqp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ae2l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uraum")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_mrw3j")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lkrmf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_brjum")
+
+[node name="ResultsSection" parent="Canvas" index="1"]
+layout_mode = 3
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+scale = Vector2(1e-05, 1e-05)
+
+[node name="LevelComplete" parent="Canvas/ResultsSection" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -100.0
+offset_right = 100.0
+
+[node name="Text" parent="Canvas/ResultsSection/LevelComplete" index="0"]
+visible = false
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+
+[node name="Results Info" parent="Canvas/ResultsSection" index="1"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -125.0
+offset_top = -123.0
+offset_right = 125.0
+offset_bottom = -23.0
+
+[node name="Text" parent="Canvas/ResultsSection/Results Info" index="0"]
+visible = false
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+
+[node name="NextLevel Button" parent="Canvas/ResultsSection" index="2"]
+offset_left = -100.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 185.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jlsph")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h60ok")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7t6fj")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mnm75")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gv7ro")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e1qta")
+image_enabled = false
+
+[node name="Text" parent="Canvas/ResultsSection/NextLevel Button" index="1"]
+visible = false
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+
+[node name="LevelSelect Button" parent="Canvas/ResultsSection" index="3"]
+offset_top = 282.0
+offset_right = 100.0
+offset_bottom = 332.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jsepd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m08qt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iywrv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_pc2ii")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fcgpj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qeqns")
+image_enabled = false
+
+[node name="Text" parent="Canvas/ResultsSection/LevelSelect Button" index="1"]
+visible = false
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+
+[node name="Unlocker" type="Node" parent="Canvas" unique_id=1305739631]
 script = ExtResource("5_unloc")
 
-[node name="PageHandler" type="Node" parent="Canvas"]
+[node name="PageHandler" type="Node" parent="Canvas" unique_id=217478838]
 script = ExtResource("6_pageh")
-page = 0
 
-[node name="Text" parent="Canvas/MainSection"]
-text = "Level Select"
-offset_top = -650
-offset_bottom = -250
-
-[node name="Up Button" parent="Canvas/MainSection"]
-visible = false
-process_mode = 4
-
-[node name="Right Button" parent="Canvas/MainSection"]
-visible = false
-process_mode = 4
-
-[node name="Reset Button" parent="Canvas/MainSection"]
-visible = false
-process_mode = 4
-
-[node name="Menu Button" parent="Canvas/MainSection"]
-visible = false
-process_mode = 4
-
-[node name="LevelComplete" parent="Canvas/ResultsSection"]
-self_modulate = Color(1, 1, 1, 0)
-
-[node name="Text" parent="Canvas/ResultsSection/LevelComplete"]
-visible = false
-
-[node name="Results Info" parent="Canvas/ResultsSection"]
-self_modulate = Color(1, 1, 1, 0)
-
-[node name="Text" parent="Canvas/ResultsSection/Results Info"]
-visible = false
-
-[node name="NextLevel Button" parent="Canvas/ResultsSection"]
-image_enabled = false
-
-[node name="Text" parent="Canvas/ResultsSection/NextLevel Button"]
-visible = false
-
-[node name="LevelSelect Button" parent="Canvas/ResultsSection"]
-image_enabled = false
-
-[node name="Text" parent="Canvas/ResultsSection/LevelSelect Button"]
-visible = false
-
-[node name="Level1 Button" type="Button" parent="Canvas"]
+[node name="Level1 Button" type="Button" parent="Canvas" unique_id=621885117]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -250.0
+offset_right = -25.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_td1g4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_da6tu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j0luu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_yua8q")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3bthp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqof3")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level1 Button" unique_id=1873174317]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level1 Button" unique_id=1983331864]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325
-offset_top = -250
-offset_right = -25
-offset_bottom = -150
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level1 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level1 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 1"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="Level2 Button" type="Button" parent="Canvas" unique_id=1936022782]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -250.0
+offset_right = 325.0
+offset_bottom = -150.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level2 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_84wty")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vc6bx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ypgqp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_2ae2l")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uraum")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mrw3j")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level2 Button" unique_id=1770476222]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level2 Button" unique_id=883591162]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 25
-offset_top = -250
-offset_right = 325
-offset_bottom = -150
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level2 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level2 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 2"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="Level3 Button" type="Button" parent="Canvas" unique_id=2046525982]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -125.0
+offset_right = -25.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level3 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lkrmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_brjum")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xjsnw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lfcix")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1q8j1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efp73")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level3 Button" unique_id=810020300]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level3 Button" unique_id=307257728]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325
-offset_top = -125
-offset_right = -25
-offset_bottom = -25
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level3 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level3 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 3"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Level4 Button" type="Button" parent="Canvas"]
-focus_mode = 0
-script = ExtResource("7_uibut")
-rounded = true
-normal_color = Color(0.7311321, 0.9679064, 1, 1)
-highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
-pressed_color = Color(0.6289562, 1, 0, 1)
-layout_mode = 1
+[node name="Level4 Button" type="Button" parent="Canvas" unique_id=1712190249]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 24.99998
-offset_top = -125
-offset_right = 325
-offset_bottom = -25
+offset_top = -125.0
+offset_right = 325.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1tr3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ykwlj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rbryb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xr2qr")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fcgta")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5e6sc")
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
 
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level4 Button"]
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level4 Button" unique_id=1166212294]
 script = ExtResource("8_level")
 
-[node name="Text" type="Label" parent="Canvas/Level4 Button"]
+[node name="Text" type="Label" parent="Canvas/Level4 Button" unique_id=264342905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 4"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="Level5 Button" type="Button" parent="Canvas" unique_id=2133488845]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_right = -25.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level5 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_gj4f4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apxe6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2thtd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_urand")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_cjbyo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k4f4v")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level5 Button" unique_id=1984237905]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level5 Button" unique_id=611247466]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325
-offset_top = 0
-offset_right = -25
-offset_bottom = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level5 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level5 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 5"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Level6 Button" type="Button" parent="Canvas"]
-focus_mode = 0
-script = ExtResource("7_uibut")
-rounded = true
-normal_color = Color(0.7311321, 0.9679064, 1, 1)
-highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
-pressed_color = Color(0.6289562, 1, 0, 1)
-layout_mode = 1
+[node name="Level6 Button" type="Button" parent="Canvas" unique_id=1493948304]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 24.99998
-offset_top = 0
-offset_right = 325
-offset_bottom = 100
+offset_right = 325.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h3xo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ga4vs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b4iyo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_500t4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gh5sd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hrpuj")
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
 
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level6 Button"]
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level6 Button" unique_id=2059167879]
 script = ExtResource("8_level")
 
-[node name="Text" type="Label" parent="Canvas/Level6 Button"]
+[node name="Text" type="Label" parent="Canvas/Level6 Button" unique_id=239466953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 6"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="Level7 Button" type="Button" parent="Canvas" unique_id=1411754005]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = 125.0
+offset_right = -25.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level7 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_61ix7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_37j4f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fxwst")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gdxdl")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_d04s1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_agurl")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level7 Button" unique_id=725062819]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level7 Button" unique_id=684046136]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325
-offset_top = 125
-offset_right = -25
-offset_bottom = 225
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level7 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level7 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 7"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="Level8 Button" type="Button" parent="Canvas" unique_id=1238859757]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 125.0
+offset_right = 325.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level8 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4p3sa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g5n6b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3agy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_e8r8i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmvst")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pitpp")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level8 Button" unique_id=673358598]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level8 Button" unique_id=819886303]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 25
-offset_top = 125
-offset_right = 325
-offset_bottom = 225
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level8 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level8 Button"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
 text = "Level 8"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Level9 Button" type="Button" parent="Canvas"]
-focus_mode = 0
-script = ExtResource("7_uibut")
-rounded = true
-normal_color = Color(0.7311321, 0.9679064, 1, 1)
-highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
-pressed_color = Color(0.6289562, 1, 0, 1)
-layout_mode = 1
+[node name="Level9 Button" type="Button" parent="Canvas" unique_id=1156313464]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325
-offset_top = 250
-offset_right = -25
-offset_bottom = 350
+offset_left = -325.0
+offset_top = 250.0
+offset_right = -25.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level9 Button"]
-script = ExtResource("8_level")
-
-[node name="Text" type="Label" parent="Canvas/Level9 Button"]
-text = "Level 9"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Level10 Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_nbnml")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5eois")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6kso")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ek1e2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_22ul2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ufkhx")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.7311321, 0.9679064, 1, 1)
 highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
 pressed_color = Color(0.6289562, 1, 0, 1)
+
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level9 Button" unique_id=1627168188]
+script = ExtResource("8_level")
+
+[node name="Text" type="Label" parent="Canvas/Level9 Button" unique_id=300566002]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 50
+text = "Level 9"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Level10 Button" type="Button" parent="Canvas" unique_id=1538486114]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 24.99998
-offset_top = 250
-offset_right = 325
-offset_bottom = 350
+offset_top = 250.0
+offset_right = 325.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rsyxy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgn72")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t185y")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_h7jc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_c5kev")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8s00q")
+script = ExtResource("7_uibut")
+rounded = true
+normal_color = Color(0.7311321, 0.9679064, 1, 1)
+highlighted_color = Color(0.7294118, 0.9686275, 1, 1)
+pressed_color = Color(0.6289562, 1, 0, 1)
 
-[node name="LevelSelectButton" type="Node" parent="Canvas/Level10 Button"]
+[node name="LevelSelectButton" type="Node" parent="Canvas/Level10 Button" unique_id=1084832937]
 script = ExtResource("8_level")
 
-[node name="Text" type="Label" parent="Canvas/Level10 Button"]
-text = "Level 10"
+[node name="Text" type="Label" parent="Canvas/Level10 Button" unique_id=1600266563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_chewy")
 theme_override_font_sizes/font_size = 50
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
+
+[node name="ResetData Button" type="Button" parent="Canvas" unique_id=463499389]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 500.0
+offset_right = 325.0
+offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="ResetData Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqrax")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3a070")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0fssw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_2is4p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ybol1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_81gh6")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(1, 0.4078544, 0.3820755, 1)
 highlighted_color = Color(1, 0.4078432, 0.3803922, 1)
 pressed_color = Color(0.5566038, 0, 0.01686809, 1)
+
+[node name="Reset" type="Node" parent="Canvas/ResetData Button" unique_id=5442784]
+script = ExtResource("10_reset")
+
+[node name="Text" type="Label" parent="Canvas/ResetData Button" unique_id=1090525763]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 45
+text = "Reset Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Credits Button" type="Button" parent="Canvas" unique_id=964961285]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 25
-offset_top = 500
-offset_right = 325
-offset_bottom = 600
+offset_left = -325.0
+offset_top = 500.0
+offset_right = -25.0
+offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Reset" type="Node" parent="Canvas/ResetData Button"]
-script = ExtResource("10_reset")
-
-[node name="Text" type="Label" parent="Canvas/ResetData Button"]
-text = "Reset Progress"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 45
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Credits Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_oq17q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dm3im")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2p7ea")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ypat6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7cs8t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gin62")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(0.6462264, 1, 0.7938184, 1)
 highlighted_color = Color(0.6470588, 1, 0.7921569, 1)
 pressed_color = Color(0, 0.3679245, 0.03579697, 1)
+
+[node name="Credits" type="Node" parent="Canvas/Credits Button" unique_id=1645813237]
+script = ExtResource("11_credi")
+
+[node name="Text" type="Label" parent="Canvas/Credits Button" unique_id=1243357251]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_chewy")
+theme_override_font_sizes/font_size = 45
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Controls Button" type="Button" parent="Canvas" unique_id=312215309]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325
-offset_top = 500
-offset_right = -25
-offset_bottom = 600
+offset_left = -150.0
+offset_top = 605.0
+offset_right = 150.0
+offset_bottom = 705.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Credits" type="Node" parent="Canvas/Credits Button"]
-script = ExtResource("11_credi")
-
-[node name="Text" type="Label" parent="Canvas/Credits Button"]
-text = "Credits"
-theme_override_fonts/font = ExtResource("9_chewy")
-theme_override_font_sizes/font_size = 45
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Controls Button" type="Button" parent="Canvas"]
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wjo6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v3jir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_438sb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k2x4s")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ppyjt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_430ml")
 script = ExtResource("7_uibut")
 rounded = true
 normal_color = Color(1, 0.8373877, 0.6470588, 1)
 highlighted_color = Color(1, 0.8392158, 0.6470588, 1)
 pressed_color = Color(1, 0.6798218, 0.2971698, 1)
+
+[node name="Controls" type="Node" parent="Canvas/Controls Button" unique_id=197293209]
+script = ExtResource("12_contr")
+
+[node name="Text" type="Label" parent="Canvas/Controls Button" unique_id=618940535]
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150
-offset_top = 605
-offset_right = 150
-offset_bottom = 705
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="Controls" type="Node" parent="Canvas/Controls Button"]
-script = ExtResource("12_contr")
-
-[node name="Text" type="Label" parent="Canvas/Controls Button"]
-text = "Controls"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_chewy")
 theme_override_font_sizes/font_size = 45
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-mouse_filter = 2
-layout_mode = 1
-anchor_left = 0
-anchor_top = 0
-anchor_right = 1
-anchor_bottom = 1
-offset_left = 0
-offset_top = 0
-offset_right = 0
-offset_bottom = 0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Up Button" type="Button" parent="Canvas"]
-focus_mode = 0
-script = ExtResource("7_uibut")
-texture = ExtResource("13_uparr")
-layout_mode = 1
+[node name="Up Button" type="Button" parent="Canvas" unique_id=1122170509]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25
-offset_top = -330
-offset_right = 25
-offset_bottom = -280
+offset_left = -25.0
+offset_top = -330.0
+offset_right = 25.0
+offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 scale = Vector2(3, 3)
-
-[node name="Down Button" type="Button" parent="Canvas"]
+pivot_offset_ratio = Vector2(0.5, 0.5)
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7rf33")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d8204")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xojti")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_dihqv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bo72c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8njpn")
 script = ExtResource("7_uibut")
-texture = ExtResource("14_downa")
-layout_mode = 1
+texture = ExtResource("13_uparr")
+
+[node name="Down Button" type="Button" parent="Canvas" unique_id=952426239]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.99998
-offset_top = 380
+offset_top = 380.0
 offset_right = 25.00002
-offset_bottom = 430
+offset_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
 scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_n4kxl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s3ne6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_knyc1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xwnpo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vm4xk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_giag3")
+script = ExtResource("7_uibut")
+texture = ExtResource("14_downa")
 
-[node name="Music" type="Node3D" parent="." groups=["Music"]]
+[node name="Music" type="Node3D" parent="." unique_id=1803415119 groups=["Music"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.77345, -2.707964, 6.0496)
 
-[node name="Beat_Doctor-Too_Retro" type="AudioStreamPlayer" parent="Music"]
+[node name="Beat_Doctor-Too_Retro" type="AudioStreamPlayer" parent="Music" unique_id=776077417]
 stream = ExtResource("15_beatd")
-volume_db = -20
+volume_db = -20.0
 autoplay = true
 
-[node name="Music" type="Node" parent="Music"]
+[node name="Music" type="Node" parent="Music" unique_id=1531885737]
 script = ExtResource("16_music")
 
-[node name="Camera" type="Camera3D" parent="."]
-fov = 60
-near = 0.3
-far = 1000
-current = true
+[node name="Camera" type="Camera3D" parent="." unique_id=417752800]
 transform = Transform3D(-0.9462875, 0.1580834, -0.2820452, -1.545357e-08, 0.8723238, 0.4889285, 0.3233263, 0.462667, -0.8254692, -3.21, 13.32, -31.71)
+current = true
+fov = 60.0
+near = 0.3
+far = 1000.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=814414469]
 environment = SubResource("Environment_2")
 
 [connection signal="pressed" from="Canvas/Level1 Button" to="Canvas/Level1 Button/LevelSelectButton" method="on_press"]
@@ -789,3 +1527,8 @@ environment = SubResource("Environment_2")
 [connection signal="pressed" from="Canvas/Controls Button" to="Canvas/Controls Button/Controls" method="go_to_controls"]
 [connection signal="pressed" from="Canvas/Up Button" to="Canvas/PageHandler" method="page_up"]
 [connection signal="pressed" from="Canvas/Down Button" to="Canvas/PageHandler" method="page_down"]
+
+[editable path="Level"]
+[editable path="Level/Fantasy_House_6"]
+[editable path="Character"]
+[editable path="Canvas"]

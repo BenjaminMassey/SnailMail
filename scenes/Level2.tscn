@@ -83,3 +83,5 @@ anchor_bottom = 1
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[editable path="Character"]

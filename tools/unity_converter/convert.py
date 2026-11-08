@@ -762,6 +762,20 @@ def add_script(out, go, gpath, sc, d, names, ctx):
 
 # --- UI ---------------------------------------------------------------------
 
+# Control.LayoutPreset values by (left, top, right, bottom) anchors.
+LAYOUT_PRESETS = {(0, 0, 0, 0): 0, (1, 0, 1, 0): 1, (0, 1, 0, 1): 2, (1, 1, 1, 1): 3,
+                  (0, .5, 0, .5): 4, (.5, 0, .5, 0): 5, (1, .5, 1, .5): 6, (.5, 1, .5, 1): 7,
+                  (.5, .5, .5, .5): 8, (0, 0, 0, 1): 9, (0, 0, 1, 0): 10, (1, 0, 1, 1): 11,
+                  (0, 1, 1, 1): 12, (0, .5, 1, .5): 13, (.5, 0, .5, 1): 14, (0, 0, 1, 1): 15}
+
+
+def anchors_preset(anchors):
+    for k, v in LAYOUT_PRESETS.items():
+        if all(abs(a - b) < 1e-6 for a, b in zip(anchors, k)):
+            return v
+    return -1
+
+
 def ui_layout(spec, go, ctx):
     t = go.transform or {}
     plan = ctx.plan
@@ -777,11 +791,16 @@ def ui_layout(spec, go, ctx):
     piv = v2(t.get('m_Pivot'), (0.5, 0.5))
     omin = (pos[0] - size[0] * piv[0], pos[1] - size[1] * piv[1])
     omax = (pos[0] + size[0] * (1 - piv[0]), pos[1] + size[1] * (1 - piv[1]))
+    anchors = (amin[0], 1 - amax[1], amax[0], 1 - amin[1])
     spec.set('layout_mode', 1)
-    spec.set('anchor_left', amin[0])
-    spec.set('anchor_top', 1 - amax[1])
-    spec.set('anchor_right', amax[0])
-    spec.set('anchor_bottom', 1 - amin[1])
+    # Godot derives anchors_preset from the anchors; if it isn't written, it reads
+    # as changed and an editor save writes it into the scene, and setting a preset
+    # on load resets the offsets. So write it, before the anchors and offsets.
+    spec.set('anchors_preset', anchors_preset(anchors))
+    spec.set('anchor_left', anchors[0])
+    spec.set('anchor_top', anchors[1])
+    spec.set('anchor_right', anchors[2])
+    spec.set('anchor_bottom', anchors[3])
     spec.set('offset_left', omin[0])
     spec.set('offset_top', -omax[1])
     spec.set('offset_right', omax[0])
@@ -1143,6 +1162,15 @@ class Emitter:
         p_plan.assign(p_roots[0], (), set(), is_root=True)
         p_specs, p_conns = collect_specs(p_roots[0], Ctx(p_plan, psrc), (), lambda x: True)
         pmap = dict(p_specs)
+
+        def mark_editable(rel):
+            # The instance itself, plus any prefab nested inside it on the way down.
+            self.w.editable(self.path_str(gp))
+            for i in range(1, len(rel)):
+                nested = pmap.get(rel[:i])
+                if nested is not None and nested.instance is not None:
+                    self.w.editable(self.path_str(gp + rel[:i]))
+
         for rel, s in inst_specs:
             path = gp + rel
             ps = pmap.get(rel)
@@ -1154,11 +1182,13 @@ class Emitter:
             elif ps is None or ps.type != s.type or canon(ps.instance) != canon(s.instance):
                 if ps is not None:
                     warn('%s: node %s replaced in instance of %s' % (self.src, '/'.join(rel), psrc))
+                    mark_editable(rel)
                 self.write_full(path, s)
             else:
                 pprops = {k: canon(v) for k, v in ps.props}
                 props = [(k, v) for k, v in s.props if pprops.get(k) != canon(v)]
                 if props:
+                    mark_editable(rel)
                     self.w.node(path[-1], None, self.parent_str(path), None, props, None)
         pconn = set(c[0] for c in p_conns)
         for rel, (sig, frm, to, method) in inst_conns:
