@@ -8,6 +8,6 @@
 resource_name = "ChildMat2"
 render_priority = 0
 shader = ExtResource("1_twoco")
-shader_parameter/color_a = Color(1, 0.5917, 0, 0)
-shader_parameter/color_b = Color(0.015, 0.0824, 0.2453, 0)
+shader_parameter/color_a = Vector4(1, 0.5917, 0, 0)
+shader_parameter/color_b = Vector4(0.015, 0.0824, 0.2453, 0)
 shader_parameter/shape_info = ExtResource("2_snail")

@@ -14,7 +14,7 @@ from PIL import Image
 
 from unityscene import UNITY, instantiate, guid_path, load_docs, Ref, v3, v2, q4, col
 from mats import read_mat
-from tscn import (Writer, Lit, V2, V3, Col, T3D, NP, Ext, Sub, canon, unity_trs,
+from tscn import (Writer, Lit, V2, V3, V4, Col, T3D, NP, Ext, Sub, canon, unity_trs,
                   mat_mul, mat_inv, mat_vec, ROT_Y180)
 
 GODOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
@@ -180,12 +180,17 @@ def material(guid):
     def c(k, default=(1, 1, 1, 1)):
         return Col(*cols.get(k, default))
 
+    def v4(k, default=(1, 1, 1, 1)):
+        # For plain vec4 uniforms (no source_color): a Color value there is dropped
+        # (saved as nil) when the material is converted to binary on export.
+        return V4(*cols.get(k, default))
+
     if sh.endswith('TwoColors.shadergraph'):
         props = [('resource_name', name),
                  ('render_priority', 0),
                  ('shader', Ext('res://shaders/two_colors.gdshader', 'Shader')),
-                 ('shader_parameter/color_a', c('Color_2290612F', (0, 0, 0, 0))),
-                 ('shader_parameter/color_b', c('Color_CFBAD931', (0, 0, 0, 0)))]
+                 ('shader_parameter/color_a', v4('Color_2290612F', (0, 0, 0, 0))),
+                 ('shader_parameter/color_b', v4('Color_CFBAD931', (0, 0, 0, 0)))]
         if 'Texture2D_895159E' in tex:
             props.append(('shader_parameter/shape_info', texture(tex['Texture2D_895159E'][0])))
         write_tres(out, 'ShaderMaterial', props)

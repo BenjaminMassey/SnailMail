@@ -45,6 +45,14 @@ class V3(Val):
         return 'Vector3(%s, %s, %s)' % tuple(fnum(float(a)) for a in self.v)
 
 
+class V4(Val):
+    def __init__(self, x, y, z, w_):
+        self.v = (x, y, z, w_)
+
+    def fmt(self, w):
+        return 'Vector4(%s, %s, %s, %s)' % tuple(fnum(float(a)) for a in self.v)
+
+
 class Col(Val):
     def __init__(self, r, g, b, a=1.0):
         self.v = (r, g, b, a)

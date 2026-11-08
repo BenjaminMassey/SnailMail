@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" path="res://assets/Textures/Rock016_4K-JPG/Rock016_4K_Color.jpg" id="1_rock0"]
 
-[ext_resource type="Texture2D" path="res://assets/Textures/Rock016_4K-JPG/Rock016_4K_Roughness.jpg" id="2_rock0"]
-
 [ext_resource type="Texture2D" path="res://assets/Textures/Rock016_4K-JPG/Rock016_4K_Normal.jpg" id="3_rock0"]
 
 [ext_resource type="Texture2D" path="res://assets/Textures/Rock016_4K-JPG/Rock016_4K_AmbientOcclusion.jpg" id="4_rock0"]
@@ -12,9 +10,7 @@
 resource_name = "Rock"
 albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_rock0")
-metallic = 1
-metallic_texture = ExtResource("2_rock0")
-metallic_texture_channel = 0
+metallic = 0
 metallic_specular = 0.5
 roughness = 0.81
 normal_enabled = true

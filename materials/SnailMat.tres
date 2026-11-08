@@ -8,6 +8,6 @@
 resource_name = "SnailMat"
 render_priority = 0
 shader = ExtResource("1_twoco")
-shader_parameter/color_a = Color(0.7608, 0.8863, 0.4118, 0)
-shader_parameter/color_b = Color(0.6275, 0, 1, 0)
+shader_parameter/color_a = Vector4(0.7608, 0.8863, 0.4118, 0)
+shader_parameter/color_b = Vector4(0.6275, 0, 1, 0)
 shader_parameter/shape_info = ExtResource("2_snail")
