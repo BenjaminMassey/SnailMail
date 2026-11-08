@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/two_colors.gdshader" id="1_twoco"]
+
+[ext_resource type="Texture2D" path="res://assets/Textures/Shroom.png" id="2_shroo"]
+
+[resource]
+resource_name = "MushroomMat"
+render_priority = 0
+shader = ExtResource("1_twoco")
+shader_parameter/color_a = Vector4(1, 0.0294, 0, 0)
+shader_parameter/color_b = Vector4(0.6509, 0.6223, 0.5926, 0)
+shader_parameter/shape_info = ExtResource("2_shroo")

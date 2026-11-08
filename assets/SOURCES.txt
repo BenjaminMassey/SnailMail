@@ -1,0 +1,70 @@
+Main Song
+assets/Sounds/Beat_Doctor-Too_Retro.mp3
+https://freemusicarchive.org/music/Beat_Doctor/Best_Bytes_Volume_1/16--Beat_Doctor--Too_Retro
+
+Puff Sound
+assets/Sounds/puff.wav
+https://freesound.org/people/Speedenza/sounds/167929/
+
+Aww Sound
+assets/Sounds/aww.wav
+https://freesound.org/people/phmiller42/sounds/124996/
+
+Boing Sound
+assets/Sounds/boing.wav
+https://freesound.org/people/pan14/sounds/334032/
+
+Cheer Sond
+assets/Sounds/cheer.wav
+https://freesound.org/people/jayfrosting/sounds/333404/
+
+Ding Sound
+assets/Sounds/ding.wav
+https://freesound.org/people/MashedTatoes2/sounds/515643/
+
+Snail 3D Model
+assets/Snail.obj
+https://free3d.com/3d-model/snail-v2--997207.html
+
+House 3D Model
+assets/Fantasy House/*
+https://www.cgtrader.com/free-3d-models/exterior/house/fantasy-house-36fc0216-613d-4104-abe1-952265cd6981
+
+Envelope Image
+assets/Images/envelope.png
+https://wikiclipart.com/envelope-clipart_23418/
+
+Hat 3D Model
+assets/lego cap.obj
+https://www.cgtrader.com/free-3d-models/character/other/lego-cap
+
+Salt Shaker Image
+assets/Images/salt.png
+https://www.clipartmax.com/middle/m2i8i8H7m2Z5H7i8_salt-shaker-salt-clip-art/
+
+Ground Texture
+assets/Textures/Ground037_4K-JPG/*
+https://cc0textures.com/view?id=Ground037
+
+Stone 3D MOdel
+assets/Stone.FBX
+https://www.cgtrader.com/free-3d-models/scanned/various/stone-3d-scan
+Mailbox 3D Model
+assets/Mailbox.FBX
+https://www.cgtrader.com/free-3d-models/exterior/house/mailbox-9d230736-f26a-4d2c-998d-b773fb6ec15d
+
+Mushroom 3D Model
+assets/Mushroom.obj
+https://www.cgtrader.com/free-3d-models/plant/other/mushroom-bend
+
+Rock Texture
+assets/Textures/Rock033_2K-JPG/*
+https://cc0textures.com/view?id=Rock033
+
+Text Font
+assets/Fonts/Chewy-Regular.ttf
+https://fonts.google.com/specimen/Chewy
+
+Rocket 3D Model
+assets/Rocket.fbx
+https://www.cgtrader.com/free-3d-models/aircraft/jet/rocket-3d-render

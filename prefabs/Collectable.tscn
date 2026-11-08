@@ -1,0 +1,60 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/face_camera.gd" id="1_facec"]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="2_corre"]
+
+[ext_resource type="ArrayMesh" path="res://meshes/Plane.res" id="3_plane"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/envelope 1.tres" id="4_envel"]
+
+[ext_resource type="BoxMesh" path="res://meshes/Cube.tres" id="5_cubet"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Letter.tres" id="6_lette"]
+
+[ext_resource type="SphereMesh" path="res://meshes/Sphere.tres" id="7_spher"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/Collectable.tres" id="8_colle"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1"]
+radius = 0.5
+
+[node name="Collectable" type="Area3D" groups=["Collectable"]]
+collision_layer = 1
+collision_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_1")
+
+[node name="FaceCamera" type="Node" parent="."]
+script = ExtResource("1_facec")
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("2_corre")
+offset = 0.4
+
+[node name="Letter Front" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_plane")
+surface_material_override/0 = ExtResource("4_envel")
+cast_shadow = 0
+transform = Transform3D(0.1, 0, 0, 0, 0, 0.05, 0, -1, 0, 0, 0, 0.01)
+
+[node name="Letter Back" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_plane")
+surface_material_override/0 = ExtResource("4_envel")
+cast_shadow = 0
+transform = Transform3D(0.09999999, 0, 0, 0, 0, 0.05000003, 0, -1, 0, 0, 0, -0.01)
+
+[node name="Letter Middle" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_cubet")
+surface_material_override/0 = ExtResource("6_lette")
+transform = Transform3D(0.6472411, -0.03681469, 0, 0.05982387, 0.3983022, 0, 0, 0, 0.019, 0.089, 0.008, 0)
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+mesh = ExtResource("7_spher")
+surface_material_override/0 = ExtResource("8_colle")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057, 0, 0)
+visible = false
+process_mode = 4

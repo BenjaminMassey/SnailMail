@@ -1,0 +1,174 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Collectable.tscn" id="1_colle"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Asteroid.tscn" id="2_aster"]
+
+[ext_resource type="PackedScene" path="res://prefabs/LaunchJumpMoon.tscn" id="3_launc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="4_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="5_level"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Rock.tres" id="6_rockt"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="7_canva"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/sky/MilkyWay.tres" id="8_milky"]
+
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="9_vigne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="Sky" id="Sky_2"]
+sky_material = ExtResource("8_milky")
+
+[sub_resource type="Environment" id="Environment_3"]
+background_mode = 2
+sky = SubResource("Sky_2")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.05
+glow_hdr_threshold = 1
+glow_blend_mode = 0
+fog_enabled = false
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4"]
+shader = ExtResource("9_vigne")
+
+[node name="Level20" type="Node3D"]
+
+[node name="Collectable" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41, -2.11, 3.75)
+
+[node name="CorrectRadius" parent="Collectable"]
+offset = 3.5
+
+[node name="Asteroid" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.7618587, -0.6209677, 0.1843106, -0.1043407, -0.3984767, -0.9112241, 0.6392842, 0.6749929, -0.3683752, -8.720706, -5.650475, 9.430719)
+
+[node name="LaunchJumpMoon" parent="." instance=ExtResource("3_launc")]
+transform = Transform3D(-0.1250793, -0.09343006, 0.1904811, 0.4841024, -0.02413986, 0.04921532, -2.892226e-08, 0.02623151, 0.7237367, -3.91, -2.27, 2.33)
+
+[node name="Collider" parent="LaunchJumpMoon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Character" parent="." instance=ExtResource("4_chara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -5.322, 0)
+
+[node name="Move" parent="Character" node_paths=PackedStringArray("world")]
+world = NodePath("../../Level/World")
+
+[node name="Level" parent="." instance=ExtResource("5_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="World" parent="Level"]
+surface_material_override/0 = ExtResource("6_rockt")
+
+[node name="Canvas" parent="." instance=ExtResource("7_canva")]
+
+[node name="Spot Light" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(1, 0, 0, 0, 0.9978808, 0.06506891, 0, -0.06506891, 0.9978808, 0, 0.58, 18.98)
+
+[node name="Spot Light (1)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.9999689, 0.007888722, 0, 0.007872252, 0.9978812, -0.06458444, -0.0005094887, -0.06458243, -0.9979122, 0, 0.58, -18.98)
+
+[node name="Spot Light (2)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(0.0001634061, 0.002507995, -0.9999968, 0.06501981, 0.9978808, 0.002513313, 0.997884, -0.06502002, -9.615288e-09, -18, 0.58, 0)
+
+[node name="Spot Light (3)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.0001634061, -0.002507995, 0.9999968, 0.06501981, 0.9978808, 0.002513313, -0.997884, 0.06502002, 9.615288e-09, 18, 0.58, 0)
+
+[node name="LaunchJumpMoon (1)" parent="." instance=ExtResource("3_launc")]
+transform = Transform3D(-0.1250793, -0.04343717, 0.648974, 0.4841024, -0.011223, 0.1676779, -9.673442e-08, 0.08937145, 0.3364771, -0.83, -1.91, 4.7)
+
+[node name="Collider" parent="LaunchJumpMoon (1)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Collectable (1)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(0.7632468, 0, 0.6461071, 0, 1, 0, -0.6461071, 0, 0.7632468, 0.05, -1.99, 4.97)
+
+[node name="CorrectRadius" parent="Collectable (1)"]
+offset = 3.5
+
+[node name="Asteroid (1)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.9945323, -0.03783405, -0.09733517, -0.1043406, -0.3984759, -0.9112244, -0.004310408, 0.9163981, -0.4002448, 0.13, -3.99, 9.58)
+
+[node name="LaunchJumpMoon (2)" parent="." instance=ExtResource("3_launc")]
+transform = Transform3D(-0.01692478, 0.0534559, 0.6333397, 0.4915198, -0.01345732, 0.0934446, 0.09012146, 0.08343481, -0.3907031, 2.69, -1.86, 3.96)
+
+[node name="Collider" parent="LaunchJumpMoon (2)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Collectable (2)" parent="." instance=ExtResource("1_colle")]
+transform = Transform3D(-0.01791477, -0.09227945, 0.995572, -0.3565976, 0.9308384, 0.07986253, -0.9340863, -0.3535879, -0.04958239, 3.74, -2.18, 3.71)
+
+[node name="CorrectRadius" parent="Collectable (2)"]
+offset = 3.5
+
+[node name="Asteroid (2)" parent="." instance=ExtResource("2_aster")]
+transform = Transform3D(0.6324341, 0.6916107, -0.3488577, -0.3177464, -0.1791037, -0.9311064, -0.7064448, 0.6997117, 0.1064855, 7.54, -3.439, 7.432)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3")
+
+[node name="PostProcessVignette" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Vignette" type="ColorRect" parent="PostProcessVignette"]
+material = SubResource("ShaderMaterial_4")
+anchors_preset = 15
+anchor_right = 1
+anchor_bottom = 1
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[editable path="Collectable"]
+[editable path="LaunchJumpMoon"]
+[editable path="Character"]
+[editable path="Level"]
+[editable path="LaunchJumpMoon (1)"]
+[editable path="Collectable (1)"]
+[editable path="LaunchJumpMoon (2)"]
+[editable path="Collectable (2)"]

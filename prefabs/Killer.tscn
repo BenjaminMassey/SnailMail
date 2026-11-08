@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/Sounds/puff.wav" id="1_puffw"]
+
+[ext_resource type="Script" path="res://scripts/kill.gd" id="2_killg"]
+
+[ext_resource type="Script" path="res://scripts/correct_radius.gd" id="3_corre"]
+
+[ext_resource type="Script" path="res://scripts/face_camera.gd" id="4_facec"]
+
+[ext_resource type="ArrayMesh" path="res://meshes/Plane.res" id="5_plane"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/salt 1.tres" id="6_salt1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(1, 1, 1)
+
+[node name="Killer" type="Area3D"]
+collision_layer = 1
+collision_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49, 0, 5.252)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="puff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_puffw")
+volume_db = -10.46
+
+[node name="Kill" type="Node" parent="." node_paths=PackedStringArray("puff")]
+script = ExtResource("2_killg")
+puff = NodePath("../puff")
+
+[node name="CorrectRadius" type="Node" parent="."]
+script = ExtResource("3_corre")
+offset = 0.45
+
+[node name="FaceCamera" type="Node" parent="."]
+script = ExtResource("4_facec")
+
+[node name="Salt" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_plane")
+surface_material_override/0 = ExtResource("6_salt1")
+cast_shadow = 0
+transform = Transform3D(0.1, 0, 0, 0, 0, 0.1, 0, -0.1, 0, 0, 0, 0)
+
+[connection signal="area_entered" from="." to="Kill" method="_on_trigger_enter"]

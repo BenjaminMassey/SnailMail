@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "20447_Snail_v2Mat"
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+metallic = 0
+metallic_specular = 0.5
+roughness = 0.5

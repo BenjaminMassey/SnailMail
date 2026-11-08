@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "BODY3"
+albedo_color = Color(0.3962, 0.3962, 0.3962, 1)
+metallic = 0
+metallic_specular = 0.5
+roughness = 0.5

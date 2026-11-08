@@ -1,0 +1,176 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://prefabs/Asteroid.tscn" id="1_aster"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Killer.tscn" id="2_kille"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Collectable.tscn" id="3_colle"]
+
+[ext_resource type="PackedScene" path="res://prefabs/LaunchLeft.tscn" id="4_launc"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Character.tscn" id="5_chara"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Level.tscn" id="6_level"]
+
+[ext_resource type="StandardMaterial3D" path="res://materials/Rock.tres" id="7_rockt"]
+
+[ext_resource type="PackedScene" path="res://prefabs/Canvas.tscn" id="8_canva"]
+
+[ext_resource type="ShaderMaterial" path="res://materials/sky/MilkyWay.tres" id="9_milky"]
+
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="10_vigne"]
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = ExtResource("9_milky")
+
+[sub_resource type="Environment" id="Environment_2"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_energy = 1
+reflected_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.6
+glow_bloom = 0.05
+glow_hdr_threshold = 1
+glow_blend_mode = 0
+fog_enabled = false
+fog_mode = 1
+fog_light_color = Color(0.6508099, 0.666729, 0.7075472, 1)
+fog_density = 1
+fog_depth_begin = 0
+fog_depth_end = 29
+fog_depth_curve = 1.35
+fog_sky_affect = 0
+fog_sun_scatter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+shader = ExtResource("10_vigne")
+
+[node name="Level17" type="Node3D"]
+
+[node name="Asteroid (2)" parent="." instance=ExtResource("1_aster")]
+transform = Transform3D(0.7946879, -0.5919728, 0.1343109, 0.5774401, 0.8054544, 0.1334396, -0.1871739, -0.02848631, 0.9819137, -5.2, 7.74, 0.15)
+
+[node name="Asteroid (1)" parent="." instance=ExtResource("1_aster")]
+transform = Transform3D(0.515714, -0.8567608, 0, 0.8567608, 0.515714, 0, 0, 0, 1, -9.06, 6.19, 0.24)
+
+[node name="Killer (13)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58, -1.42, 4.77)
+
+[node name="Killer (11)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, -0.5706174, 5.2723)
+
+[node name="Killer (10)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87, 0.6574682, 5.259095)
+
+[node name="Killer (9)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35, 1.9, 5.215277)
+
+[node name="Killer (8)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.644698, 1.677348, 4.215277)
+
+[node name="Collectable" parent="." instance=ExtResource("3_colle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.214, 0.08, 1.69)
+
+[node name="Killer (12)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.943366, -1.217857, 4.54)
+
+[node name="Asteroid" parent="." instance=ExtResource("1_aster")]
+transform = Transform3D(0.04433723, -0.9694776, 0.2411376, 0.9990166, 0.04302627, -0.01070186, -3.12109e-08, 0.2413749, 0.9704319, -9.04314, 0.1880432, 2.874115)
+
+[node name="LaunchLeft" parent="." instance=ExtResource("4_launc")]
+transform = Transform3D(0.1477489, 0, 0.8066748, 0, 1, 0, -0.2016687, 0, 0.5909956, -2.91, 0.02, 4.4)
+
+[node name="Killer (7)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.273439, 1.631035, 3.592796)
+
+[node name="Killer (6)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.835378, 1.592365, 2.765334)
+
+[node name="Killer (5)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.204428, 1.547728, 1.898273)
+
+[node name="Killer (3)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.792187, -1.449508, 2.908568)
+
+[node name="Killer (2)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16124, -1.556308, 2.026678)
+
+[node name="Killer (1)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.402698, 1.450223, 1.071564)
+
+[node name="Killer" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.356552, -1.607448, 1.157208)
+
+[node name="Character" parent="." instance=ExtResource("5_chara")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365, -5.322, 0)
+
+[node name="Move" parent="Character" node_paths=PackedStringArray("world")]
+world = NodePath("../../Level/World")
+
+[node name="Killer (4)" parent="." instance=ExtResource("2_kille")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.143214, -1.35776, 3.54)
+
+[node name="Level" parent="." instance=ExtResource("6_level")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.396109, -4.153554, 13.71218)
+
+[node name="World" parent="Level"]
+surface_material_override/0 = ExtResource("7_rockt")
+
+[node name="Canvas" parent="." instance=ExtResource("8_canva")]
+
+[node name="Spot Light" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(1, 0, 0, 0, 0.9978808, 0.06506891, 0, -0.06506891, 0.9978808, 0, 0.58, 18.98)
+
+[node name="Spot Light (1)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.9999689, 0.007888722, 0, 0.007872252, 0.9978812, -0.06458444, -0.0005094887, -0.06458243, -0.9979122, 0, 0.58, -18.98)
+
+[node name="Spot Light (2)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(0.0001634061, 0.002507995, -0.9999968, 0.06501981, 0.9978808, 0.002513313, 0.997884, -0.06502002, -9.615288e-09, -18, 0.58, 0)
+
+[node name="Spot Light (3)" type="SpotLight3D" parent="."]
+light_color = Color(1, 0.9568627, 0.8392157, 1)
+light_energy = 550
+shadow_enabled = true
+spot_range = 50
+spot_attenuation = 2
+spot_angle = 32
+transform = Transform3D(-0.0001634061, -0.002507995, 0.9999968, 0.06501981, 0.9978808, 0.002513313, -0.997884, 0.06502002, 9.615288e-09, 18, 0.58, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2")
+
+[node name="PostProcessVignette" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Vignette" type="ColorRect" parent="PostProcessVignette"]
+material = SubResource("ShaderMaterial_3")
+anchors_preset = 15
+anchor_right = 1
+anchor_bottom = 1
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[editable path="Character"]
+[editable path="Level"]
