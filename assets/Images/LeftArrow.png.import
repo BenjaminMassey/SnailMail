@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg15pv27ht4am"
 path.s3tc="res://.godot/imported/LeftArrow.png-1e9eba714f62039bdf14d4d5b794104d.s3tc.ctex"
+path.etc2="res://.godot/imported/LeftArrow.png-1e9eba714f62039bdf14d4d5b794104d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Images/LeftArrow.png"
-dest_files=["res://.godot/imported/LeftArrow.png-1e9eba714f62039bdf14d4d5b794104d.s3tc.ctex"]
+dest_files=["res://.godot/imported/LeftArrow.png-1e9eba714f62039bdf14d4d5b794104d.s3tc.ctex", "res://.godot/imported/LeftArrow.png-1e9eba714f62039bdf14d4d5b794104d.etc2.ctex"]
 
 [params]
 
