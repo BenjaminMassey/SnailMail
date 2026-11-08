@@ -1230,7 +1230,11 @@ def scene_has_pp(roots):
     return False
 
 
-def environment(src, pp):
+# Scenes whose fog is kept in the environment but switched off.
+FOGLESS = re.compile(r'^Level(\d+|Select)$')
+
+
+def environment(src, pp, fog=True):
     docs = load_docs(src)
     rs = next(d['data'] for d in docs.values() if d['cls'] == 104)
     props = [('background_mode', 2),
@@ -1247,7 +1251,7 @@ def environment(src, pp):
         # within a few percent over the distances the camera sees by Godot's depth
         # fog, (d / end)^curve, with end = 1.45 / density and curve = 1.35.
         density = float(rs.get('m_FogDensity', 0.01))
-        props += [('fog_enabled', True), ('fog_mode', 1),
+        props += [('fog_enabled', fog), ('fog_mode', 1),
                   ('fog_light_color', Col(*col(rs.get('m_FogColor')))),
                   ('fog_density', 1.0), ('fog_depth_begin', 0.0), ('fog_depth_end', 1.45 / density),
                   ('fog_depth_curve', 1.35), ('fog_sky_affect', 0.0), ('fog_sun_scatter', 0.0)]
@@ -1260,7 +1264,7 @@ def emit_scene(name):
     em = Emitter(src, w, name)
     em.run()
     pp = scene_has_pp(em.roots)
-    w.node('WorldEnvironment', 'WorldEnvironment', '.', None, [('environment', environment(src, pp))])
+    w.node('WorldEnvironment', 'WorldEnvironment', '.', None, [('environment', environment(src, pp, fog=not FOGLESS.match(name)))])
     if pp:  # Vignette from the post-processing profile, drawn under the UI
         w.node('PostProcessVignette', 'CanvasLayer', '.', None, [('layer', -1)])
         w.node('Vignette', 'ColorRect', 'PostProcessVignette', None, [
